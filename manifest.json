@@ -1,0 +1,13 @@
+{
+  "name": "Kavach — Digital Safety for Women",
+  "short_name": "Kavach",
+  "description": "On-device image shield, tamper-evident evidence vault, guided complaints and 24x7 emotional support.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#FBF5EE",
+  "theme_color": "#2A1235",
+  "icons": [
+    { "src": "assets/logo.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Sahara companion avatar">
+  <defs>
+    <linearGradient id="a" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFE6CC"/>
+      <stop offset="1" stop-color="#F7B99A"/>
+    </linearGradient>
+    <clipPath id="c"><circle cx="60" cy="60" r="60"/></clipPath>
+  </defs>
+  <g clip-path="url(#c)">
+    <rect width="120" height="120" fill="url(#a)"/>
+    <path d="M10 130c0-34 22-52 50-52s50 18 50 52z" fill="#1F7A6D"/>
+    <path d="M50 82h20v-10H50z" fill="#C98B6B"/>
+    <path d="M32 58c-2-26 12-38 28-38s30 12 28 38c0 12 2 26 6 36-8 2-14-2-16-8 2-18-2-34-18-34S44 70 44 86c-2 6-8 10-16 8 4-10 6-24 4-36z" fill="#2B1B2E"/>
+    <circle cx="60" cy="58" r="22" fill="#C98B6B"/>
+    <path d="M38 54c2-16 12-24 22-24s20 8 22 24c-6-8-12-12-22-12s-16 4-22 12z" fill="#2B1B2E"/>
+    <circle cx="60" cy="40" r="2.5" fill="#F2A33A"/>
+    <path d="M52 66c3 3 13 3 16 0" fill="none" stroke="#8E2A5B" stroke-width="2" stroke-linecap="round"/>
+    <path d="M10 130c8-26 20-40 42-46l-6 46z" fill="#F2A33A" opacity=".85"/>
+  </g>
+</svg>

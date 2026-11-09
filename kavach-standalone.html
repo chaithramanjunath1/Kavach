@@ -1,0 +1,1800 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Kavach — Her image. Her evidence. Her call.</title>
+<meta name="description" content="Kavach protects women from online abuse: on-device image shield, tamper-evident evidence vault, guided complaints and 24x7 emotional support.">
+<meta name="theme-color" content="#2A1235">
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjRTQ1NzJFIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzhFMkE1QiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPHBhdGggZD0iTTMyIDRsMjIgOHYxNmMwIDE0LjUtOS4yIDI2LjQtMjIgMzJDMTkuMiA1NC40IDEwIDQyLjUgMTAgMjhWMTJ6IiBmaWxsPSJ1cmwoI2cpIi8+CiAgPHBhdGggZD0iTTMyIDE3YzMuMiA0LjIgNC44IDcuOSA0LjggMTEuNCAwIDMuOC0yIDYuOC00LjggOC40LTIuOC0xLjYtNC44LTQuNi00LjgtOC40IDAtMy41IDEuNi03LjIgNC44LTExLjR6IiBmaWxsPSIjRkZFOUM3Ii8+CiAgPHBhdGggZD0iTTIxLjUgMjYuNWMzLjguNCA2LjUgMi40IDggNS40LjggMS43LjggMy40LjMgNC45LTQtLjEtNy44LTQtOC4zLTEwLjN6TTQyLjUgMjYuNWMtLjUgNi4zLTQuMyAxMC4yLTguMyAxMC4zLS41LTEuNS0uNS0zLjIuMy00LjkgMS41LTMgNC4yLTUgOC01LjR6IiBmaWxsPSIjRkZEMDhBIi8+CiAgPHBhdGggZD0iTTI1IDQyYzIgMS44IDQuNCAyLjggNyAyLjhzNS0xIDctMi44IiBmaWxsPSJub25lIiBzdHJva2U9IiNGRkU5QzciIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+Cjwvc3ZnPgo=" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+<style>
+/* Kavach design system — warm, calm, protective. Aubergine + marigold + coral on warm paper. */
+:root{
+  --bg:#FBF5EE; --bg2:#F4EAE0; --ink:#2A1235; --ink2:#4B3555; --muted:#7A6A82;
+  --card:#FFFFFF; --line:#EADCCF;
+  --brand:#8E2A5B; --brand-d:#6E1D45; --coral:#E4572E; --gold:#F2A33A;
+  --safe:#1F7A6D; --safe-bg:#E3F3EF; --danger:#C5283D; --danger-bg:#FCE8EA; --warn:#9A5B00; --warn-bg:#FFF2DB; --info-bg:#EFE6F5;
+  --r:18px; --r-sm:12px;
+  --sh:0 1px 2px rgba(42,18,53,.06),0 10px 28px rgba(42,18,53,.07);
+  --serif:'Fraunces',Georgia,'Times New Roman',serif;
+  --sans:'DM Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 var(--sans);-webkit-font-smoothing:antialiased;display:grid;grid-template-columns:268px 1fr;min-height:100vh}
+h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.15;margin:0 0 .4em;letter-spacing:-.01em}
+h1{font-size:clamp(1.9rem,3.4vw,2.7rem)} h2{font-size:1.45rem} h3{font-size:1.1rem}
+p{margin:0 0 .8em} a{color:var(--brand)} svg.i{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:8px}
+.skip{position:absolute;left:-999px}.skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:99}
+.hidden{display:none!important}
+
+/* sidebar */
+.side{position:sticky;top:0;height:100vh;background:var(--ink);color:#F5E9F7;padding:22px 16px;display:flex;flex-direction:column;gap:6px;overflow:auto}
+.brand{display:flex;align-items:center;gap:12px;padding:6px 10px 18px}
+.brand img{width:42px;height:42px}
+.brand b{font:700 1.5rem var(--serif);letter-spacing:.01em;display:block;line-height:1}
+.brand small{display:block;color:#CDB5D6;font-size:.72rem;margin-top:4px;line-height:1.25}
+.nav a{display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:12px;color:#E9D8EE;text-decoration:none;font-weight:500}
+.nav a:hover{background:rgba(255,255,255,.08)}
+.nav a.on{background:linear-gradient(135deg,var(--coral),var(--brand));color:#fff;box-shadow:0 6px 16px rgba(0,0,0,.25)}
+.nav a.sos{color:#FFB4A2}.nav a.sos.on{color:#fff}
+.side-foot{margin-top:auto;display:grid;gap:8px;padding-top:14px;border-top:1px solid rgba(255,255,255,.12)}
+.seg{display:flex;background:rgba(255,255,255,.1);border-radius:10px;padding:3px}
+.seg button{flex:1;border:0;background:none;color:#E9D8EE;padding:6px;border-radius:8px;font-weight:600}
+.seg button.on{background:#fff;color:var(--ink)}
+.side-btn{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.08);border:0;color:#E9D8EE;padding:10px 12px;border-radius:10px;text-align:left}
+.side-btn:hover{background:rgba(255,255,255,.15)}
+.disguise .brand b{font-family:var(--sans)}
+
+/* main */
+main{padding:34px 44px 90px;min-width:0;outline:0}
+.page{max-width:1080px;margin:0 auto;animation:rise .35s ease both}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.page-head{margin-bottom:26px}
+.eyebrow{font:700 .74rem var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--brand);margin-bottom:8px}
+.lead{font-size:1.1rem;color:var(--ink2);max-width:62ch}
+.muted{color:var(--muted)}.small{font-size:.86rem}.center{text-align:center}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.82rem;word-break:break-all}
+.grid{display:grid;gap:18px}.g2{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.split{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:20px;align-items:start}
+.stack>*+*{margin-top:14px}.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.spread{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+
+/* cards */
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;box-shadow:var(--sh)}
+.card.tint{background:linear-gradient(180deg,#FFF7EC,#FFF)}
+.card.danger{background:var(--danger-bg);border-color:#F3C3C9}
+.card.safe{background:var(--safe-bg);border-color:#BFE3DB}
+.card.warn{background:var(--warn-bg);border-color:#F2DAA8}
+.card.dark{background:var(--ink);color:#F5E9F7;border-color:transparent}
+.card.dark .muted{color:#CDB5D6}
+.card-title{display:flex;align-items:center;gap:10px;font:700 1.08rem var(--serif);margin-bottom:12px}
+.card-title .ic{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:var(--info-bg);color:var(--brand)}
+.card-title .ic.coral{background:#FFE5DB;color:var(--coral)}.card-title .ic.safe{background:var(--safe-bg);color:var(--safe)}.card-title .ic.gold{background:var(--warn-bg);color:var(--warn)}
+a.card.link{text-decoration:none;color:inherit;display:block;transition:transform .15s,box-shadow .15s}
+a.card.link:hover{transform:translateY(-2px);box-shadow:0 2px 4px rgba(42,18,53,.06),0 16px 36px rgba(42,18,53,.12)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:1.5px solid var(--line);background:#fff;color:var(--ink);padding:11px 18px;border-radius:999px;font-weight:700;text-decoration:none;transition:transform .12s,box-shadow .12s,background .12s}
+.btn:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(42,18,53,.12)}
+.btn.primary{background:linear-gradient(135deg,var(--brand),var(--brand-d));color:#fff;border-color:transparent}
+.btn.coral{background:linear-gradient(135deg,var(--coral),#C93E1C);color:#fff;border-color:transparent}
+.btn.safe{background:var(--safe);color:#fff;border-color:transparent}
+.btn.danger{background:var(--danger);color:#fff;border-color:transparent}
+.btn.ghost{background:transparent}
+.btn.sm{padding:7px 13px;font-size:.88rem}.btn.lg{padding:15px 26px;font-size:1.05rem}.btn.block{display:flex;width:100%}
+.btn[disabled]{opacity:.5;pointer-events:none}
+
+/* forms */
+.field{display:grid;gap:6px;margin-bottom:14px}
+.field>label,.lbl{font-weight:700;font-size:.9rem;color:var(--ink2)}
+input[type=text],input[type=password],input[type=tel],input[type=datetime-local],select,textarea{width:100%;font:inherit;padding:11px 13px;border:1.5px solid var(--line);border-radius:var(--r-sm);background:#fff;color:var(--ink)}
+textarea{min-height:104px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 4px rgba(142,42,91,.12)}
+.hint{font-size:.83rem;color:var(--muted)}
+.chk{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border:1.5px solid var(--line);border-radius:var(--r-sm);background:#fff;cursor:pointer}
+.chk input{margin-top:4px;accent-color:var(--brand);width:18px;height:18px}
+.chk:has(input:checked){border-color:var(--safe);background:var(--safe-bg)}
+.chk.done span{text-decoration:line-through;color:var(--muted)}
+
+/* chips, badges, progress */
+.chip{display:inline-flex;align-items:center;gap:6px;padding:4px 11px;border-radius:999px;font-size:.78rem;font-weight:700;background:var(--info-bg);color:var(--brand)}
+.chip.safe{background:var(--safe-bg);color:var(--safe)}.chip.warn{background:var(--warn-bg);color:var(--warn)}.chip.danger{background:var(--danger-bg);color:var(--danger)}.chip.gray{background:#EFE9E3;color:var(--ink2)}
+.progress{height:8px;background:var(--bg2);border-radius:999px;overflow:hidden}.progress i{display:block;height:100%;background:linear-gradient(90deg,var(--coral),var(--brand));border-radius:inherit}
+.stat{display:flex;flex-direction:column;gap:2px}.stat b{font:700 2rem var(--serif);line-height:1}.stat span{color:var(--muted);font-size:.85rem}
+.ring{position:relative;width:104px;height:104px;flex:none}.ring svg{transform:rotate(-90deg)}.ring b{position:absolute;inset:0;display:grid;place-items:center;font:700 1.4rem var(--serif)}
+
+/* tabs */
+.tabs{display:flex;gap:6px;background:var(--bg2);padding:5px;border-radius:999px;margin-bottom:20px;overflow:auto;width:fit-content;max-width:100%}
+.tab{border:0;background:none;padding:9px 16px;border-radius:999px;font-weight:700;color:var(--ink2);white-space:nowrap}
+.tab.on{background:#fff;color:var(--brand);box-shadow:0 2px 8px rgba(42,18,53,.1)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center;background:linear-gradient(135deg,#2A1235,#5A1F4B 60%,#8E2A5B);color:#fff;border-radius:28px;padding:40px 44px;overflow:hidden;position:relative;margin-bottom:24px}
+.hero h1{color:#fff;font-size:clamp(2rem,4vw,3.1rem)}
+.hero p{color:#EBD9EF;font-size:1.08rem;max-width:48ch}
+.hero .tag{font:600 1.05rem var(--serif);font-style:italic;color:#FFD08A;margin-bottom:18px}
+.hero img{width:100%;height:auto;filter:drop-shadow(0 18px 30px rgba(0,0,0,.28))}
+.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:22px}
+.quick .card{padding:18px}.quick h3{margin:10px 0 4px}.quick p{margin:0;color:var(--muted);font-size:.9rem}
+.qi{width:44px;height:44px;border-radius:14px;display:grid;place-items:center}
+.qi.a{background:#FFE5DB;color:var(--coral)}.qi.b{background:var(--info-bg);color:var(--brand)}.qi.c{background:var(--safe-bg);color:var(--safe)}.qi.d{background:var(--warn-bg);color:var(--warn)}
+
+/* steps / timeline */
+.steps{counter-reset:s;display:grid;gap:12px}
+.step{display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:start;padding:14px 16px;border:1.5px solid var(--line);border-radius:var(--r-sm);background:#fff}
+.step::before{counter-increment:s;content:counter(s);width:36px;height:36px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-weight:700}
+.step h3{margin:0 0 2px;font-family:var(--sans);font-size:1rem}.step p{margin:0;color:var(--muted);font-size:.92rem}
+.tl{position:relative;padding-left:26px;display:grid;gap:14px}.tl::before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.tl>.node{position:relative}.tl>.node::before{content:"";position:absolute;left:-24px;top:22px;width:12px;height:12px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 4px var(--bg)}
+.pipe{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:10px 0}.pipe .p{padding:7px 12px;border-radius:999px;background:var(--bg2);font-weight:700;font-size:.83rem}.pipe .p.on{background:var(--ink);color:#fff}.pipe .ar{color:var(--muted)}
+
+/* dropzone, fingerprints */
+.drop{display:grid;place-items:center;gap:6px;text-align:center;border:2px dashed #D7BFCB;border-radius:var(--r);padding:30px 18px;background:#FFFAF4;cursor:pointer;transition:.15s}
+.drop:hover,.drop.over{border-color:var(--brand);background:#FFF1F5}
+.drop svg.i{width:30px;height:30px;color:var(--brand)}
+.thumb{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:12px;background:var(--bg2);display:block}
+.thumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:10px}
+.bits{display:grid;grid-template-columns:repeat(8,1fr);gap:2px;width:112px;flex:none}.bits i{aspect-ratio:1;border-radius:2px;background:#EADCCF}.bits i.on{background:var(--brand)}
+.verdict{padding:16px 18px;border-radius:var(--r-sm);font-weight:700;display:flex;gap:12px;align-items:center}
+.verdict.block{background:var(--danger-bg);color:var(--danger)}.verdict.review{background:var(--warn-bg);color:var(--warn)}.verdict.allow{background:var(--safe-bg);color:var(--safe)}
+.mock{border:1px solid var(--line);border-radius:22px;overflow:hidden;background:#fff;box-shadow:var(--sh)}
+.mock-top{display:flex;align-items:center;gap:10px;padding:12px 16px;background:linear-gradient(135deg,#3C6EE0,#7A4BD8);color:#fff;font-weight:700}
+.mock-body{padding:16px;display:grid;gap:12px}
+.variant{border:1.5px solid var(--line);border-radius:12px;padding:6px;background:#fff;text-align:center;font-size:.76rem;font-weight:700}
+.variant canvas,.variant img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:8px;display:block;margin-bottom:5px}
+.variant:hover{border-color:var(--brand)}
+
+/* table-ish */
+.kv{display:grid;grid-template-columns:150px 1fr;gap:6px 14px;font-size:.92rem}.kv dt{color:var(--muted);font-weight:700}.kv dd{margin:0;word-break:break-word}
+.entry{background:#fff;border:1px solid var(--line);border-radius:var(--r-sm);padding:16px}
+.code{background:#1D0F26;color:#F2E3F6;border-radius:12px;padding:14px;overflow:auto;font:.8rem/1.5 ui-monospace,Menlo,monospace;white-space:pre-wrap;word-break:break-word}
+.letter{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px;font:.95rem/1.7 Georgia,serif;white-space:pre-wrap;max-height:520px;overflow:auto}
+mark{background:#FFE29A;border-radius:4px;padding:0 3px}
+
+/* helplines */
+.hl{display:flex;align-items:center;gap:14px;justify-content:space-between;padding:14px 16px;border:1.5px solid var(--line);border-radius:var(--r-sm);background:#fff}
+.hl>div>b{font:700 1.5rem var(--serif);display:block;line-height:1.1}.hl span{font-size:.85rem;color:var(--muted);display:block;margin-top:2px}.hl span b{font:700 .9rem var(--sans);color:var(--ink);display:inline}.hl.red{border-color:#F3C3C9;background:var(--danger-bg)}
+
+/* chat */
+.chat{display:flex;flex-direction:column;height:min(640px,76vh)}
+.chat-head{display:flex;align-items:center;gap:12px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.chat-head img{width:46px;height:46px;border-radius:50%}
+.chat-log{flex:1;overflow:auto;padding:16px 4px;display:flex;flex-direction:column;gap:10px}
+.msg{max-width:84%;padding:11px 15px;border-radius:18px;white-space:pre-wrap;animation:rise .25s ease both}
+.msg.bot{background:#F6EEF8;border-bottom-left-radius:6px;align-self:flex-start}.msg.user{background:var(--ink);color:#fff;border-bottom-right-radius:6px;align-self:flex-end}
+.quick-r{display:flex;gap:8px;flex-wrap:wrap;margin:2px 0 4px}.quick-r button{border:1.5px solid var(--brand);color:var(--brand);background:#fff;padding:7px 14px;border-radius:999px;font-weight:700;font-size:.9rem}.quick-r button:hover{background:var(--brand);color:#fff}
+.typing{display:flex;gap:4px;padding:14px 16px;background:#F6EEF8;border-radius:18px;align-self:flex-start}.typing i{width:7px;height:7px;border-radius:50%;background:var(--muted);animation:blink 1.1s infinite}.typing i:nth-child(2){animation-delay:.18s}.typing i:nth-child(3){animation-delay:.36s}
+@keyframes blink{0%,80%,100%{opacity:.25}40%{opacity:1}}
+.chat-in{display:flex;gap:8px;padding-top:12px;border-top:1px solid var(--line)}.chat-in input{flex:1}
+.crisis-bar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:var(--danger-bg);border:1px solid #F3C3C9;color:var(--danger);padding:10px 14px;border-radius:var(--r-sm);font-weight:700;margin-bottom:16px}
+.breath{display:grid;place-items:center;padding:20px}.breath .orb{width:150px;height:150px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#FFD9C2,var(--coral) 70%);display:grid;place-items:center;color:#fff;font-weight:700;transition:transform 4s ease-in-out;box-shadow:0 0 0 14px rgba(228,87,46,.12)}
+.breath .orb.in{transform:scale(1.35)}
+
+/* overlays */
+.scrim{position:fixed;inset:0;background:rgba(42,18,53,.55);backdrop-filter:blur(3px);display:grid;place-items:center;padding:18px;z-index:60}
+.dialog{background:#fff;border-radius:22px;padding:26px;max-width:640px;width:100%;max-height:90vh;overflow:auto;box-shadow:0 30px 80px rgba(0,0,0,.35)}
+.esc{position:fixed;inset:0;z-index:80;background:linear-gradient(160deg,#2A1235,#5A1F4B);color:#fff;overflow:auto;padding:28px}
+.esc-in{max-width:760px;margin:0 auto;display:grid;gap:16px}
+.esc h1{color:#fff}.esc .card{color:var(--ink)}
+.big-count{font:700 4rem var(--serif);line-height:1;color:#FFD08A}
+.log{display:grid;gap:6px;font-size:.88rem}.log div{padding:8px 12px;border-radius:10px;background:var(--bg2)}.log div.ok{background:var(--safe-bg)}.log div.sim{background:var(--warn-bg)}
+.simbanner{background:var(--warn-bg);border:2px dashed var(--gold);color:var(--warn);padding:10px 14px;border-radius:12px;font-weight:700}
+.toasts{position:fixed;bottom:84px;left:50%;transform:translateX(-50%);display:grid;gap:8px;z-index:99;pointer-events:none}
+.toast{background:var(--ink);color:#fff;padding:11px 18px;border-radius:999px;font-weight:600;box-shadow:0 10px 30px rgba(0,0,0,.3);animation:rise .25s both}.toast.out{opacity:0;transition:.4s}.toast.warn{background:var(--danger)}
+.qexit{position:fixed;top:14px;right:14px;z-index:70;display:flex;gap:8px;align-items:center;background:#fff;border:1.5px solid var(--line);padding:8px 14px;border-radius:999px;font-weight:700;color:var(--ink2);box-shadow:var(--sh)}
+.qexit:hover{background:var(--danger);color:#fff;border-color:var(--danger)}
+
+/* lock/onboarding */
+.gate{position:fixed;inset:0;z-index:90;background:var(--bg);display:grid;grid-template-columns:1fr 1fr;overflow:auto}
+.gate-art{background:linear-gradient(150deg,#2A1235,#8E2A5B);display:grid;place-items:center;padding:36px;color:#fff;text-align:center}
+.gate-art img{max-width:480px;width:100%}.gate-art .tag{font:italic 600 1.3rem var(--serif);color:#FFD08A;margin-top:14px}
+.gate-form{display:grid;align-content:center;padding:44px;max-width:560px;margin:0 auto;width:100%}
+.promise{display:grid;gap:8px;margin:16px 0;padding:0;list-style:none}.promise li{display:flex;gap:10px;align-items:flex-start;font-size:.93rem}.promise svg{color:var(--safe);margin-top:2px}
+
+/* tabbar */
+.tabbar{display:none}
+@media(max-width:900px){
+  body{grid-template-columns:1fr}.side{display:none}
+  main{padding:20px 16px 110px}
+  .tabbar{display:grid;grid-template-columns:repeat(6,1fr);position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);padding:6px 4px calc(6px + env(safe-area-inset-bottom));z-index:50}
+  .tabbar a,.tabbar button{display:grid;justify-items:center;gap:2px;font-size:.66rem;font-weight:700;color:var(--muted);text-decoration:none;background:none;border:0;padding:4px 0}
+  .tabbar .on{color:var(--brand)}.tabbar .sos{color:var(--danger)}
+  .hero{grid-template-columns:1fr;padding:26px}.hero img{max-width:340px;margin:auto}
+  .quick,.g4{grid-template-columns:repeat(2,1fr)}.g3,.g2,.split{grid-template-columns:1fr}
+  .gate{grid-template-columns:1fr}.gate-art{padding:20px}.gate-art img{max-width:260px}.gate-form{padding:24px}
+  .qexit span{display:none}.qexit{padding:10px}
+  .toasts{bottom:96px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media print{.side,.tabbar,.qexit{display:none}body{display:block}}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#view">Skip to content</a>
+<aside class="side" id="side" aria-label="Main navigation"></aside>
+<main id="view" tabindex="-1"></main>
+<nav class="tabbar" id="tabbar" aria-label="Main navigation"></nav>
+<button class="qexit" id="qexit" title="Leave instantly — or press Esc twice"></button>
+<div id="gate"></div>
+<div id="overlay"></div>
+<div id="modal"></div>
+<div class="toasts" id="toast" aria-live="polite"></div>
+
+<script>
+'use strict';
+/* Small, dependency-free helpers shared by every module. */
+
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const hex = buf => [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2, '0')).join('');
+const sha256 = async data => hex(await crypto.subtle.digest('SHA-256', typeof data === 'string' ? new TextEncoder().encode(data) : data));
+const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
+const fmt = iso => new Date(iso).toLocaleString('en-IN', { dateStyle: 'medium', timeStyle: 'short' });
+const short = (h, n = 10) => h ? h.slice(0, n) + '…' + h.slice(-6) : '';
+
+const ICONS = {
+  home: '<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/>',
+  alert: '<path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><path d="M12 9v4M12 17h.01"/>',
+  shield: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',
+  lock: '<rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>',
+  file: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/>',
+  heart: '<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>',
+  phone: '<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/>',
+  info: '<circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/>',
+  x: '<path d="M18 6L6 18M6 6l12 12"/>',
+  check: '<path d="M20 6L9 17l-5-5"/>',
+  upload: '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/>',
+  download: '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>',
+  pin: '<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>',
+  users: '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>',
+  clock: '<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',
+  eye: '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>',
+  globe: '<circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z"/>',
+  more: '<circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/>',
+  exit: '<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/>',
+  link: '<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>',
+  trash: '<path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/>',
+  plus: '<path d="M12 5v14M5 12h14"/>',
+  copy: '<rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>',
+  send: '<path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/>',
+  search: '<circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>',
+  camera: '<path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/>',
+  flask: '<path d="M9 2h6M10 2v6L4 20a1 1 0 0 0 .9 1.5h14.2A1 1 0 0 0 20 20l-6-12V2"/>',
+  tool: '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94z"/>',
+};
+const icon = (n, cls = '') => `<svg class="i ${cls}" viewBox="0 0 24 24" aria-hidden="true">${ICONS[n] || ''}</svg>`;
+
+function toast(msg, kind = '') {
+  const host = $('#toast'); if (!host) return;
+  const n = document.createElement('div');
+  n.className = 'toast ' + kind; n.textContent = msg; host.appendChild(n);
+  setTimeout(() => n.classList.add('out'), 2600);
+  setTimeout(() => n.remove(), 3100);
+}
+
+async function copy(text) {
+  try { await navigator.clipboard.writeText(text); }
+  catch { const ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove(); }
+  toast('Copied to clipboard');
+}
+
+function download(name, data, type = 'text/plain') {
+  const b = data instanceof Blob ? data : new Blob([data], { type });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(b); a.download = name; document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 3000);
+}
+
+function modal(html) {
+  const m = $('#modal');
+  m.innerHTML = `<div class="scrim"><div class="dialog" role="dialog" aria-modal="true">${html}</div></div>`;
+  m.querySelector('.scrim').addEventListener('click', e => {
+    if (e.target.classList.contains('scrim') || e.target.closest('[data-close]')) closeModal();
+  });
+  return m;
+}
+const closeModal = () => { $('#modal').innerHTML = ''; };
+
+const blobToDataURL = blob => new Promise(res => { const r = new FileReader(); r.onload = () => res(r.result); r.readAsDataURL(blob); });
+const canvasEl = (w, h) => { const c = document.createElement('canvas'); c.width = w; c.height = h; return c; };
+const canvasBlob = (c, type = 'image/jpeg', q = 0.9) => new Promise(r => c.toBlob(r, type, q));
+
+async function loadImage(fileOrBlob) {
+  const url = URL.createObjectURL(fileOrBlob);
+  const img = new Image(); img.src = url;
+  await img.decode();
+  return { img, url };
+}
+
+const debounce = (fn, ms = 200) => { let t; return (...a) => { clearTimeout(t); t = setTimeout(() => fn(...a), ms); }; };
+
+/* Tiny hash router. Views register themselves; app.js decides when to render. */
+const Router = {
+  routes: {},
+  current: 'home',
+  onChange: null,
+  register(name, fn) { this.routes[name] = fn; },
+  go(name) { location.hash = '#/' + name; },
+  busy: false,
+  again: false,
+  /* Renders are serialised: if a navigation happens mid-render, the latest route is rendered once
+     the current one finishes, so two async views can never overwrite each other. */
+  async render() {
+    if (this.busy) { this.again = true; return; }
+    this.busy = true;
+    try {
+      do {
+        this.again = false;
+        const name = (location.hash.replace(/^#\//, '') || 'home').split('?')[0];
+        const fn = this.routes[name] || this.routes.home;
+        this.current = this.routes[name] ? name : 'home';
+        const root = $('#view');
+        if (!root || !fn) break;
+        root.innerHTML = '';
+        window.scrollTo(0, 0);
+        try { await fn(root); }
+        catch (e) { console.error(e); root.innerHTML = `<div class="page"><div class="card danger"><b>Something went wrong showing this page.</b><p class="small">${esc(e.message)}</p></div></div>`; }
+        if (this.onChange) this.onChange(this.current);
+      } while (this.again);
+    } finally { this.busy = false; }
+  },
+};
+window.addEventListener('hashchange', () => Router.render());
+
+</script>
+<script>
+'use strict';
+/* English + Hindi for the surfaces a woman in distress sees first. Missing keys fall back to English. */
+
+const I18N = {
+  en: {
+    nav_home: 'Home', nav_sos: 'Emergency', nav_shield: 'Image Shield', nav_vault: 'Evidence Vault', nav_report: 'Report & Takedown', nav_sahara: 'Sahara · Talk', nav_help: 'Helplines & Rights', nav_about: 'About Kavach',
+    tagline: 'Her image. Her evidence. Her call.',
+    brand_sub: 'Armor for the online world',
+    hero_title: 'Your armor in the online world.',
+    hero_sub: 'Stop your photos from being misused, keep tamper-proof evidence, file a complaint that gets taken seriously, and talk to someone when it feels like too much. Everything stays on your phone, under your control.',
+    cta_sos: 'I need help right now', cta_shield: 'Protect a photo', cta_talk: 'Talk to someone',
+    quick_exit: 'Quick exit', disguise: 'Disguise app', disguise_on: 'Disguised as “Daily Notes”', lang: 'Language',
+    qa_shield: 'Image Shield', qa_shield_d: 'Fingerprint a photo on your device so copies can be blocked.',
+    qa_vault: 'Evidence Vault', qa_vault_d: 'Encrypted, hash-chained proof that stands up in court.',
+    qa_report: 'Report & Takedown', qa_report_d: 'Complaint letter, platform takedown, case tracker.',
+    qa_sahara: 'Sahara', qa_sahara_d: 'A caring companion and real helplines, any hour.',
+    sos_title: 'You are not alone. This is not your fault.',
+    sos_sub: 'Take a breath. Here is exactly what to do, in order. You do not need to do it all at once.',
+    sos_1: 'Do not pay', sos_1d: 'Paying almost never stops the threats. It usually makes them grow.',
+    sos_2: 'Do not delete anything', sos_2d: 'Chats, profiles, numbers and payment requests are evidence. Save them first.',
+    sos_3: 'Stop replying', sos_3d: 'You can block them after you have saved the evidence.',
+    sos_4: 'Secure your accounts', sos_4d: 'Change passwords, turn on 2-step verification, make profiles private.',
+    sos_5: 'Report it', sos_5d: 'Call 1930 or file at cybercrime.gov.in. You can do this online, from home.',
+    sahara_title: 'You do not have to carry this alone.',
+    sahara_sub: 'Talk to Sahara, call a trained counsellor, or let someone you trust know. Free and private.',
+    helpline_note: 'Free, confidential, 24x7',
+    call: 'Call', open: 'Open',
+    mood_q: 'How are you feeling today?',
+    privacy_h: 'Privacy by design',
+  },
+  hi: {
+    nav_home: 'होम', nav_sos: 'आपातकाल', nav_shield: 'इमेज शील्ड', nav_vault: 'सबूत तिजोरी', nav_report: 'रिपोर्ट व टेकडाउन', nav_sahara: 'सहारा · बात करें', nav_help: 'हेल्पलाइन व अधिकार', nav_about: 'कवच के बारे में',
+    tagline: 'उसकी तस्वीर. उसके सबूत. उसका फ़ैसला.',
+    brand_sub: 'ऑनलाइन दुनिया का कवच',
+    hero_title: 'ऑनलाइन दुनिया में आपका कवच।',
+    hero_sub: 'अपनी तस्वीरों का दुरुपयोग रोकें, सबूत सुरक्षित रखें, ऐसी शिकायत तैयार करें जिसे गंभीरता से लिया जाए, और जब सब भारी लगे तो किसी से बात करें। सब कुछ आपके फ़ोन में, आपके नियंत्रण में।',
+    cta_sos: 'मुझे अभी मदद चाहिए', cta_shield: 'तस्वीर सुरक्षित करें', cta_talk: 'किसी से बात करें',
+    quick_exit: 'तुरंत बाहर निकलें', disguise: 'ऐप छिपाएँ', disguise_on: '“Daily Notes” के रूप में छिपा', lang: 'भाषा',
+    qa_shield: 'इमेज शील्ड', qa_shield_d: 'अपने फ़ोन पर तस्वीर की फ़िंगरप्रिंट बनाएँ ताकि उसकी कॉपी रोकी जा सके।',
+    qa_vault: 'सबूत तिजोरी', qa_vault_d: 'एन्क्रिप्टेड, हैश-चेन वाले सबूत जो अदालत में टिकें।',
+    qa_report: 'रिपोर्ट व टेकडाउन', qa_report_d: 'शिकायत पत्र, प्लेटफ़ॉर्म टेकडाउन, केस ट्रैकर।',
+    qa_sahara: 'सहारा', qa_sahara_d: 'हर समय एक संवेदनशील साथी और असली हेल्पलाइन।',
+    sos_title: 'आप अकेली नहीं हैं। यह आपकी गलती नहीं है।',
+    sos_sub: 'एक गहरी साँस लें। यह रहा क्रम से क्या करना है। सब एक साथ करना ज़रूरी नहीं।',
+    sos_1: 'पैसे न दें', sos_1d: 'पैसे देने से धमकियाँ लगभग कभी नहीं रुकतीं, अक्सर बढ़ जाती हैं।',
+    sos_2: 'कुछ भी डिलीट न करें', sos_2d: 'चैट, प्रोफ़ाइल, नंबर और पैसे की माँग सबूत हैं। पहले उन्हें सुरक्षित करें।',
+    sos_3: 'जवाब देना बंद करें', sos_3d: 'सबूत सुरक्षित करने के बाद आप उन्हें ब्लॉक कर सकती हैं।',
+    sos_4: 'अपने अकाउंट सुरक्षित करें', sos_4d: 'पासवर्ड बदलें, 2-स्टेप वेरिफ़िकेशन चालू करें, प्रोफ़ाइल प्राइवेट करें।',
+    sos_5: 'शिकायत दर्ज करें', sos_5d: '1930 पर कॉल करें या cybercrime.gov.in पर शिकायत करें। यह घर बैठे ऑनलाइन हो सकता है।',
+    sahara_title: 'आपको यह अकेले नहीं उठाना है।',
+    sahara_sub: 'सहारा से बात करें, प्रशिक्षित काउंसलर को कॉल करें, या किसी भरोसेमंद को बताएँ। मुफ़्त और निजी।',
+    helpline_note: 'मुफ़्त, गोपनीय, 24x7',
+    call: 'कॉल करें', open: 'खोलें',
+    mood_q: 'आज आप कैसा महसूस कर रही हैं?',
+    privacy_h: 'डिज़ाइन से ही निजता',
+  },
+};
+
+let LANG = (() => { try { return localStorage.getItem('kv_lang') || 'en'; } catch { return 'en'; } })();
+const t = k => (I18N[LANG] && I18N[LANG][k]) || I18N.en[k] || k;
+function setLang(l) {
+  LANG = l;
+  try { localStorage.setItem('kv_lang', l); } catch {}
+  document.documentElement.lang = l;
+  if (window.App) App.refresh();
+}
+
+</script>
+<script>
+'use strict';
+/*
+ * Store — everything a woman saves in Kavach lives ONLY in this browser's IndexedDB,
+ * encrypted with AES-256-GCM.
+ *   • "pass" mode  : key derived from her passphrase (PBKDF2-SHA256, 250k iterations). We cannot recover it.
+ *   • "device" mode: random key stored beside the data (protects against casual snooping only; demo convenience).
+ * Records are { id, iv, ct }. Nothing is ever sent to a server.
+ */
+const Store = (() => {
+  let db, key = null, cfg = null;
+  const enc = s => new TextEncoder().encode(s);
+  const dec = b => new TextDecoder().decode(b);
+
+  const open = () => new Promise((res, rej) => {
+    const r = indexedDB.open('kavach', 1);
+    r.onupgradeneeded = () => { ['evidence', 'blobs', 'shield', 'cases', 'kv', 'meta'].forEach(n => r.result.createObjectStore(n, { keyPath: 'id' })); };
+    r.onsuccess = () => { db = r.result; res(); };
+    r.onerror = () => rej(r.error);
+  });
+  const store = (s, m = 'readonly') => db.transaction(s, m).objectStore(s);
+  const req = r => new Promise((res, rej) => { r.onsuccess = () => res(r.result); r.onerror = () => rej(r.error); });
+  const rawGet = (s, id) => req(store(s).get(id));
+  const rawPut = (s, rec) => req(store(s, 'readwrite').put(rec));
+  const rawAll = s => req(store(s).getAll());
+  const rawDel = (s, id) => req(store(s, 'readwrite').delete(id));
+
+  async function deriveKey(pass, salt) {
+    const base = await crypto.subtle.importKey('raw', enc(pass), 'PBKDF2', false, ['deriveKey']);
+    return crypto.subtle.deriveKey({ name: 'PBKDF2', salt, iterations: 250000, hash: 'SHA-256' }, base, { name: 'AES-GCM', length: 256 }, false, ['encrypt', 'decrypt']);
+  }
+  async function seal(bytes) {
+    if (!key) throw new Error('locked');
+    const iv = crypto.getRandomValues(new Uint8Array(12));
+    return { iv, ct: await crypto.subtle.encrypt({ name: 'AES-GCM', iv }, key, bytes) };
+  }
+  const unseal = rec => { if (!key) throw new Error('locked'); return crypto.subtle.decrypt({ name: 'AES-GCM', iv: rec.iv }, key, rec.ct); };
+
+  return {
+    async init() {
+      await open();
+      cfg = await rawGet('meta', 'cfg');
+      if (!cfg) return 'new';
+      if (cfg.mode === 'device') { key = await crypto.subtle.importKey('jwk', cfg.jwk, { name: 'AES-GCM' }, false, ['encrypt', 'decrypt']); return 'open'; }
+      return 'locked';
+    },
+    async setupPass(pass) {
+      const salt = crypto.getRandomValues(new Uint8Array(16));
+      key = await deriveKey(pass, salt);
+      cfg = { id: 'cfg', mode: 'pass', salt, chk: await seal(enc('kavach-ok')) };
+      await rawPut('meta', cfg);
+    },
+    async setupDevice() {
+      const k = await crypto.subtle.generateKey({ name: 'AES-GCM', length: 256 }, true, ['encrypt', 'decrypt']);
+      const jwk = await crypto.subtle.exportKey('jwk', k);
+      key = await crypto.subtle.importKey('jwk', jwk, { name: 'AES-GCM' }, false, ['encrypt', 'decrypt']);
+      cfg = { id: 'cfg', mode: 'device', jwk };
+      await rawPut('meta', cfg);
+    },
+    async unlock(pass) {
+      try {
+        const k = await deriveKey(pass, cfg.salt);
+        const p = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: cfg.chk.iv }, k, cfg.chk.ct);
+        if (dec(p) !== 'kavach-ok') return false;
+        key = k; return true;
+      } catch { return false; }
+    },
+    lock() { key = null; },
+    isOpen: () => !!key,
+    mode: () => cfg && cfg.mode,
+
+    async put(s, id, obj) { const { iv, ct } = await seal(enc(JSON.stringify(obj))); await rawPut(s, { id, iv, ct }); return obj; },
+    async get(s, id, def = null) { const r = await rawGet(s, id); return r ? JSON.parse(dec(await unseal(r))) : def; },
+    async all(s) { const out = []; for (const r of await rawAll(s)) out.push(JSON.parse(dec(await unseal(r)))); return out; },
+    del: rawDel,
+    async putBlob(id, buf) { const { iv, ct } = await seal(buf); await rawPut('blobs', { id, iv, ct }); },
+    async getBlob(id) { const r = await rawGet('blobs', id); return r ? unseal(r) : null; },
+
+    async wipe() {
+      key = null; cfg = null;
+      db.close();
+      await new Promise(res => { const r = indexedDB.deleteDatabase('kavach'); r.onsuccess = r.onerror = r.onblocked = () => res(); });
+    },
+  };
+})();
+
+</script>
+<script>
+'use strict';
+/*
+ * Forensics — honest, explainable, on-device signals. NOT a deepfake detector.
+ *  • EXIF reader: finds hidden GPS / device / date data before a photo is shared.
+ *  • Error Level Analysis (ELA): shows uneven JPEG compression, one weak hint that a region may have been edited.
+ *  • Privacy cleaner: re-encodes a photo, dropping all metadata.
+ */
+const Forensics = (() => {
+  function parseExif(buf) {
+    try {
+      const v = new DataView(buf);
+      if (v.byteLength < 4 || v.getUint16(0) !== 0xFFD8) return { format: 'not-jpeg', found: false };
+      let off = 2;
+      while (off + 4 < v.byteLength) {
+        const marker = v.getUint16(off); off += 2;
+        if (marker === 0xFFDA || (marker & 0xFF00) !== 0xFF00) break;
+        const len = v.getUint16(off);
+        if (marker === 0xFFE1 && v.getUint32(off + 2) === 0x45786966) return readTiff(v, off + 8);
+        off += len;
+      }
+      return { format: 'jpeg', found: false };
+    } catch { return { format: 'jpeg', found: false, error: true }; }
+  }
+
+  function readTiff(v, t) {
+    const le = v.getUint16(t) === 0x4949;
+    const u16 = o => v.getUint16(o, le), u32 = o => v.getUint32(o, le);
+    const out = { format: 'jpeg', found: true, gps: null };
+    const size = e => ({ 2: 1, 3: 2, 4: 4, 5: 8 }[e.type] || 1) * e.count;
+    const at = e => size(e) > 4 ? t + u32(e.vo) : e.vo;
+    const str = e => { const o = at(e); let s = ''; for (let i = 0; i < e.count - 1; i++) { const c = v.getUint8(o + i); if (!c) break; s += String.fromCharCode(c); } return s.trim(); };
+    const rat = o => { const d = u32(o + 4); return d ? u32(o) / d : 0; };
+    const entries = ifd => { const n = u16(ifd), a = []; for (let i = 0; i < n; i++) { const e = ifd + 2 + i * 12; if (e + 12 > v.byteLength) break; a.push({ tag: u16(e), type: u16(e + 2), count: u32(e + 4), vo: e + 8 }); } return a; };
+    let gpsPtr = 0;
+    for (const e of entries(t + u32(t + 4))) {
+      if (e.tag === 0x010F) out.make = str(e);
+      else if (e.tag === 0x0110) out.model = str(e);
+      else if (e.tag === 0x0131) out.software = str(e);
+      else if (e.tag === 0x0132) out.date = str(e);
+      else if (e.tag === 0x8825) gpsPtr = u32(e.vo);
+    }
+    if (gpsPtr) {
+      const g = {};
+      for (const e of entries(t + gpsPtr)) {
+        const o = at(e);
+        if (e.tag === 1) g.latRef = String.fromCharCode(v.getUint8(e.vo));
+        else if (e.tag === 3) g.lonRef = String.fromCharCode(v.getUint8(e.vo));
+        else if (e.tag === 2) g.lat = rat(o) + rat(o + 8) / 60 + rat(o + 16) / 3600;
+        else if (e.tag === 4) g.lon = rat(o) + rat(o + 8) / 60 + rat(o + 16) / 3600;
+      }
+      if (g.lat != null && g.lon != null) out.gps = { lat: (g.latRef === 'S' ? -1 : 1) * g.lat, lon: (g.lonRef === 'W' ? -1 : 1) * g.lon };
+    }
+    return out;
+  }
+
+  /** Error Level Analysis: recompress at 90% and amplify the difference. */
+  async function ela(img, quality = 0.9, scale = 18) {
+    const sw = img.naturalWidth || img.width, sh = img.naturalHeight || img.height;
+    const r = Math.min(1, 900 / Math.max(sw, sh));
+    const w = Math.max(8, Math.round(sw * r)), h = Math.max(8, Math.round(sh * r));
+    const c = canvasEl(w, h), x = c.getContext('2d', { willReadFrequently: true });
+    x.drawImage(img, 0, 0, w, h);
+    const a = x.getImageData(0, 0, w, h);
+    const re = await createImageBitmap(await canvasBlob(c, 'image/jpeg', quality));
+    const c2 = canvasEl(w, h), x2 = c2.getContext('2d', { willReadFrequently: true });
+    x2.drawImage(re, 0, 0);
+    const b = x2.getImageData(0, 0, w, h);
+
+    const out = x.createImageData(w, h), cell = 24, gx = Math.ceil(w / cell), gy = Math.ceil(h / cell);
+    const sums = new Float64Array(gx * gy), cnt = new Float64Array(gx * gy);
+    for (let i = 0; i < a.data.length; i += 4) {
+      const d = (Math.abs(a.data[i] - b.data[i]) + Math.abs(a.data[i + 1] - b.data[i + 1]) + Math.abs(a.data[i + 2] - b.data[i + 2])) / 3;
+      const vv = Math.min(255, d * scale);
+      out.data[i] = out.data[i + 1] = out.data[i + 2] = vv; out.data[i + 3] = 255;
+      const p = i / 4, cx = Math.floor((p % w) / cell), cy = Math.floor(Math.floor(p / w) / cell);
+      sums[cy * gx + cx] += d; cnt[cy * gx + cx]++;
+    }
+    const means = [...sums].map((s, i) => cnt[i] ? s / cnt[i] : 0);
+    const mu = means.reduce((p, q) => p + q, 0) / means.length || 0.0001;
+    const sd = Math.sqrt(means.reduce((p, q) => p + (q - mu) ** 2, 0) / means.length);
+    const cv = sd / (mu || 0.0001);
+    const outliers = means.filter(m => m > mu + 2 * sd).length / means.length;
+    const level = cv > 1.1 || outliers > 0.06 ? 'high' : cv > 0.65 || outliers > 0.03 ? 'medium' : 'low';
+    const res = canvasEl(w, h); res.getContext('2d').putImageData(out, 0, 0);
+    return { canvas: res, cv: +cv.toFixed(2), outliers: +(outliers * 100).toFixed(1), level };
+  }
+
+  /** Re-encode through a canvas: drops EXIF/GPS/device info entirely. */
+  async function clean(img, maxSide = 4096, quality = 0.92) {
+    const sw = img.naturalWidth || img.width, sh = img.naturalHeight || img.height;
+    const r = Math.min(1, maxSide / Math.max(sw, sh));
+    const c = canvasEl(Math.round(sw * r), Math.round(sh * r));
+    c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+    return canvasBlob(c, 'image/jpeg', quality);
+  }
+
+  return { parseExif, ela, clean };
+})();
+
+</script>
+<script>
+'use strict';
+/*
+ * Image Shield — a perceptual-hash (pHash, DCT based) fingerprint computed ON THE DEVICE.
+ * Only the 64-bit fingerprint is kept; the photo itself is never stored or uploaded.
+ * A platform that holds the fingerprint can block re-uploads, even resized, recompressed,
+ * brightened, cropped or mirrored copies. This is the same principle as StopNCII.org (which
+ * uses its own hashes and real platform partnerships). Here it is demonstrated end-to-end
+ * with a clearly-labelled mock platform.
+ */
+const Shield = (() => {
+  const N = 32, K = 8;
+  const COS = Array.from({ length: K }, (_, u) => Float64Array.from({ length: N }, (_, x) => Math.cos((2 * x + 1) * u * Math.PI / (2 * N))));
+  const POP = [0, 1, 1, 2, 1, 2, 2, 3, 1, 2, 2, 3, 2, 3, 3, 4];
+
+  function gray(src, mirror) {
+    // two-step downscale (to 128 then 32) avoids aliasing on large photos
+    const mid = canvasEl(128, 128), mx = mid.getContext('2d'); mx.imageSmoothingQuality = 'high'; mx.drawImage(src, 0, 0, 128, 128);
+    const c = canvasEl(N, N), x = c.getContext('2d', { willReadFrequently: true }); x.imageSmoothingQuality = 'high';
+    if (mirror) { x.translate(N, 0); x.scale(-1, 1); }
+    x.drawImage(mid, 0, 0, N, N);
+    const d = x.getImageData(0, 0, N, N).data, g = new Float64Array(N * N);
+    for (let i = 0; i < N * N; i++) g[i] = 0.299 * d[i * 4] + 0.587 * d[i * 4 + 1] + 0.114 * d[i * 4 + 2];
+    return g;
+  }
+
+  function phash(g) {
+    const co = [];
+    for (let v = 0; v < K; v++) for (let u = 0; u < K; u++) {
+      let s = 0;
+      for (let y = 0; y < N; y++) { const cy = COS[v][y]; for (let x = 0; x < N; x++) s += g[y * N + x] * COS[u][x] * cy; }
+      co.push(s);
+    }
+    const sorted = co.slice(1).sort((a, b) => a - b), med = sorted[31];
+    const bits = co.map(c => c > med ? 1 : 0);
+    let h = ''; for (let i = 0; i < 64; i += 4) h += (bits[i] * 8 + bits[i + 1] * 4 + bits[i + 2] * 2 + bits[i + 3]).toString(16);
+    return h;
+  }
+
+  const hamming = (a, b) => { let d = 0; for (let i = 0; i < 16; i++) d += POP[parseInt(a[i], 16) ^ parseInt(b[i], 16)]; return d; };
+  const fingerprint = src => ({ h: phash(gray(src, false)), m: phash(gray(src, true)) }); // original + mirrored
+  const bitsOf = h => [...h].flatMap(ch => { const n = parseInt(ch, 16); return [n >> 3 & 1, n >> 2 & 1, n >> 1 & 1, n & 1]; });
+  const grid = h => `<div class="bits" aria-label="fingerprint">${bitsOf(h).map(b => `<i class="${b ? 'on' : ''}"></i>`).join('')}</div>`;
+
+  const BLOCK = 10, REVIEW = 16;
+  function match(fp, registry) {
+    let best = { dist: 64, entry: null };
+    for (const e of registry) for (const ref of [e.h, e.m]) {
+      const d = hamming(fp.h, ref);
+      if (d < best.dist) best = { dist: d, entry: e };
+    }
+    const verdict = best.dist <= BLOCK ? 'block' : best.dist <= REVIEW ? 'review' : 'allow';
+    return { ...best, verdict };
+  }
+
+  /* -------- synthetic sample photo (so judges never need to upload a personal image) -------- */
+  function sample(seed = 1) {
+    const c = canvasEl(640, 800), x = c.getContext('2d');
+    let s = seed * 9301 + 49297; const rnd = () => (s = (s * 9301 + 49297) % 233280) / 233280;
+    const sky = x.createLinearGradient(0, 0, 0, 800);
+    sky.addColorStop(0, seed === 2 ? '#1E3A5F' : '#2A1235'); sky.addColorStop(.55, seed === 2 ? '#3E8E7E' : '#E4572E'); sky.addColorStop(1, '#F2A33A');
+    x.fillStyle = sky; x.fillRect(0, 0, 640, 800);
+    x.fillStyle = '#FFE9C7'; x.beginPath(); x.arc(150 + seed * 60, 230, 74, 0, 7); x.fill();
+    for (let i = 0; i < 40; i++) { x.fillStyle = `rgba(255,255,255,${.2 + rnd() * .5})`; x.fillRect(rnd() * 640, rnd() * 300, 2, 2); }
+    [['#7A2A55', 520], ['#5A1F4B', 600], ['#2A1235', 690]].forEach(([col, base], k) => {
+      x.fillStyle = col; x.beginPath(); x.moveTo(0, 800);
+      for (let px = 0; px <= 640; px += 40) x.lineTo(px, base - Math.sin(px / 90 + k * 2 + seed) * 46 - rnd() * 14);
+      x.lineTo(640, 800); x.fill();
+    });
+    // abstract figure silhouette with a dupatta
+    x.fillStyle = '#1B0B22'; x.beginPath(); x.arc(400, 430, 38, 0, 7); x.fill();
+    x.beginPath(); x.moveTo(330, 700); x.bezierCurveTo(330, 560, 370, 490, 400, 490); x.bezierCurveTo(430, 490, 470, 560, 470, 700); x.fill();
+    x.strokeStyle = '#F2A33A'; x.lineWidth = 12; x.lineCap = 'round'; x.beginPath(); x.moveTo(372, 500); x.bezierCurveTo(300, 560, 280, 620, 300, 700); x.stroke();
+    return c;
+  }
+
+  /* -------- the edits an abuser might make to dodge a filter -------- */
+  async function variants(src) {
+    const W = 512, ratio = (src.naturalWidth || src.width) / (src.naturalHeight || src.height);
+    const w = ratio >= 1 ? W : Math.round(W * ratio), h = ratio >= 1 ? Math.round(W / ratio) : W;
+    const base = canvasEl(w, h); base.getContext('2d').drawImage(src, 0, 0, w, h);
+    const make = fn => { const c = canvasEl(w, h), x = c.getContext('2d', { willReadFrequently: true }); fn(x, c); return c; };
+    const px = (x, f) => { const d = x.getImageData(0, 0, w, h); for (let i = 0; i < d.data.length; i += 4) { const [r, g, b] = f(d.data[i], d.data[i + 1], d.data[i + 2], i / 4); d.data[i] = r; d.data[i + 1] = g; d.data[i + 2] = b; } x.putImageData(d, 0, 0); };
+    const clamp = v => Math.max(0, Math.min(255, v));
+    const out = [];
+    out.push({ label: 'Resized 35%', canvas: make((x, c) => { const t = canvasEl(Math.round(w * .35), Math.round(h * .35)); t.getContext('2d').drawImage(base, 0, 0, t.width, t.height); x.drawImage(t, 0, 0, w, h); }) });
+    out.push({ label: 'Brighter + contrast', canvas: make(x => { x.drawImage(base, 0, 0); px(x, (r, g, b) => [clamp((r - 128) * 1.2 + 128 + 28), clamp((g - 128) * 1.2 + 128 + 28), clamp((b - 128) * 1.2 + 128 + 28)]); }) });
+    const jb = await canvasBlob(base, 'image/jpeg', 0.25), jm = await createImageBitmap(jb);
+    out.push({ label: 'JPEG quality 25%', canvas: make(x => x.drawImage(jm, 0, 0)) });
+    out.push({ label: 'Cropped 8% edges', canvas: make(x => x.drawImage(base, w * .08, h * .08, w * .84, h * .84, 0, 0, w, h)) });
+    out.push({ label: 'Mirrored', canvas: make(x => { x.translate(w, 0); x.scale(-1, 1); x.drawImage(base, 0, 0); }) });
+    out.push({ label: 'Watermark added', canvas: make(x => { x.drawImage(base, 0, 0); x.fillStyle = 'rgba(0,0,0,.45)'; x.fillRect(0, h - 56, w, 56); x.fillStyle = '#fff'; x.font = '700 28px sans-serif'; x.fillText('@throwaway_acct', 18, h - 18); }) });
+    out.push({ label: 'Black & white', canvas: make(x => { x.drawImage(base, 0, 0); px(x, (r, g, b) => { const l = .3 * r + .59 * g + .11 * b; return [l, l, l]; }); }) });
+    out.push({ label: 'Different photo (control)', canvas: (() => { const s = sample(2), c = canvasEl(w, h); c.getContext('2d').drawImage(s, 0, 0, w, h); return c; })() });
+    return out;
+  }
+
+  const state = { source: null, registry: [] };
+  return { fingerprint, match, hamming, grid, bitsOf, sample, variants, state, BLOCK, REVIEW };
+})();
+
+if (typeof module !== 'undefined') module.exports = { hamming: (...a) => Shield.hamming(...a) };
+
+/* ============================== VIEW ============================== */
+(function () {
+  let tab = 'protect';
+
+  Router.register('shield', async root => {
+    const photos = Store.isOpen() ? (await Store.all('shield')).sort((a, b) => b.createdAt.localeCompare(a.createdAt)) : [];
+    Shield.state.registry = photos;
+    const tabs = [['protect', 'Protect a photo'], ['test', 'Test the shield'], ['check', 'Check a photo'], ['clean', 'Privacy cleaner']];
+    root.innerHTML = `<div class="page">
+      <div class="page-head"><div class="eyebrow">${icon('shield')} Image Shield</div>
+        <h1>Protect a photo before it can be misused.</h1>
+        <p class="lead">Kavach turns a photo into a tiny fingerprint on <b>your device</b>. The photo never leaves your phone, but a platform holding the fingerprint can recognise and block copies, even edited ones.</p></div>
+      <div class="tabs" role="tablist">${tabs.map(([k, l]) => `<button class="tab ${tab === k ? 'on' : ''}" data-tab="${k}" role="tab">${l}</button>`).join('')}</div>
+      <div id="shield-body"></div></div>`;
+    $$('.tab', root).forEach(b => b.onclick = () => { tab = b.dataset.tab; Router.render(); });
+    const body = $('#shield-body');
+    ({ protect: protectTab, test: testTab, check: checkTab, clean: cleanTab })[tab](body, photos);
+  });
+
+  function dropzone(id, label) {
+    return `<label class="drop" id="${id}-drop" for="${id}"><span>${icon('upload')}</span><b>${label}</b><span class="hint">Processed on your device only</span>
+      <input type="file" id="${id}" accept="image/*" hidden></label>`;
+  }
+  function wireDrop(id, cb) {
+    const input = $('#' + id), zone = $('#' + id + '-drop');
+    input.onchange = () => input.files[0] && cb(input.files[0]);
+    ['dragover', 'dragenter'].forEach(e => zone.addEventListener(e, ev => { ev.preventDefault(); zone.classList.add('over'); }));
+    ['dragleave', 'drop'].forEach(e => zone.addEventListener(e, ev => { ev.preventDefault(); zone.classList.remove('over'); }));
+    zone.addEventListener('drop', ev => ev.dataTransfer.files[0] && cb(ev.dataTransfer.files[0]));
+  }
+
+  /* ---------- tab 1: protect ---------- */
+  function protectTab(body, photos) {
+    if (!Store.isOpen()) { body.innerHTML = `<div class="card warn">Unlock Kavach to save fingerprints.</div>`; return; }
+    body.innerHTML = `<div class="split"><div class="stack">
+        <div class="card"><div class="card-title"><span class="ic coral">${icon('camera')}</span>Choose a photo to protect</div>
+          ${dropzone('pf', 'Drop a photo or tap to choose')}
+          <div class="row" style="margin-top:12px"><button class="btn sm" id="use-sample">${icon('flask')} Use a sample photo</button><span class="hint">A synthetic image, so you can try without a personal photo.</span></div>
+          <div id="pf-result" style="margin-top:16px"></div></div>
+        <div class="card tint"><div class="card-title"><span class="ic safe">${icon('lock')}</span>What exactly is stored?</div>
+          <ul class="promise"><li>${icon('check')}A 64-bit fingerprint (16 hex characters) and a label you choose.</li>
+          <li>${icon('check')}A second fingerprint of the mirrored image, so flipped copies are caught too.</li>
+          <li>${icon('check')}<span><b>Not</b> stored: the photo, its name, its location data.</span></li></ul>
+          <p class="hint">Real cross-platform blocking needs a registry that platforms trust. <a href="https://stopncii.org" target="_blank" rel="noopener">StopNCII.org</a> does this for intimate images; Kavach’s roadmap is to submit hashes there on your behalf, with your consent.</p></div></div>
+      <div class="card" id="plist-card"></div></div>`;
+
+    const drawList = list => {
+      $('#plist-card').innerHTML = `<div class="card-title"><span class="ic">${icon('shield')}</span>My protected photos <span class="chip">${list.length}</span></div>
+        <div class="stack" id="plist">${list.length ? list.map(p => `<div class="entry"><div class="row" style="gap:14px;align-items:flex-start">${Shield.grid(p.h)}
+          <div style="min-width:0;flex:1"><b>${esc(p.label)}</b><div class="hint">${fmt(p.createdAt)}</div><div class="mono">${p.h}</div></div>
+          <button class="btn sm ghost" data-del="${p.id}" aria-label="Remove">${icon('trash')}</button></div></div>`).join('') : `<p class="muted">No photos protected yet. Add one on the left, then try to “upload” an edited copy in <b>Test the shield</b>.</p>`}</div>`;
+      $$('[data-del]', body).forEach(b => b.onclick = async () => { await Store.del('shield', b.dataset.del); drawList((await Store.all('shield')).sort((a, c) => c.createdAt.localeCompare(a.createdAt))); });
+    };
+    drawList(photos);
+
+    const handle = async (src, label) => {
+      const fp = Shield.fingerprint(src);
+      const rec = { id: uid(), label: label || 'Protected photo', h: fp.h, m: fp.m, createdAt: new Date().toISOString() };
+      await Store.put('shield', rec.id, rec);
+      Shield.state.source = src;
+      drawList((await Store.all('shield')).sort((a, c) => c.createdAt.localeCompare(a.createdAt)));
+      $('#pf-result').innerHTML = `<div class="verdict allow">${icon('check')}<div>Fingerprint saved on this device. The photo was not uploaded or stored.</div></div>
+        <div class="row" style="margin-top:12px;gap:16px">${Shield.grid(rec.h)}<div><b>${esc(rec.label)}</b><div class="mono">${rec.h}</div><div class="hint">Each square is one bit of the fingerprint.</div></div></div>
+        <button class="btn primary" style="margin-top:14px" id="go-test">Now try to defeat it →</button>`;
+      $('#go-test').onclick = () => { tab = 'test'; Router.render(); };
+      toast('Photo protected');
+    };
+    wireDrop('pf', async f => { const { img } = await loadImage(f); handle(img, f.name.replace(/\.[^.]+$/, '').slice(0, 40)); });
+    $('#use-sample').onclick = () => handle(Shield.sample(1), 'Sample photo');
+  }
+
+  /* ---------- tab 2: platform simulator ---------- */
+  async function testTab(body, photos) {
+    body.innerHTML = `<div class="split">
+      <div class="stack"><div class="card"><div class="card-title"><span class="ic coral">${icon('flask')}</span>Simulate an abuser re-uploading</div>
+        <p class="muted">Pick an edited copy of your protected photo, or upload any image. The mock platform on the right compares it with the fingerprint registry <b>before</b> publishing.</p>
+        <div class="pipe"><span class="p">1 Upload</span><span class="ar">→</span><span class="p">2 Fingerprint</span><span class="ar">→</span><span class="p">3 Compare (${photos.length} on file)</span><span class="ar">→</span><span class="p">4 Allow / Block</span></div>
+        ${photos.length ? '' : `<div class="card warn" style="margin:10px 0">No protected photos yet. <a href="#/shield" id="back-p">Protect one first</a>, or load the sample below.</div>`}
+        <div class="row" style="margin-bottom:12px"><button class="btn sm" id="gen">${icon('tool')} Generate attacker edits</button>
+          <button class="btn sm" id="qs">${icon('flask')} Protect sample &amp; generate</button></div>
+        <div class="thumbs" id="vars"></div>
+        <div style="margin-top:14px">${dropzone('tf', 'Or upload any image to test')}</div></div></div>
+      <div class="mock"><div class="mock-top">${icon('users')} MockGram <span class="chip" style="background:rgba(255,255,255,.2);color:#fff;margin-left:auto">simulation</span></div>
+        <div class="mock-body"><div class="small muted">New post · registry: <b>${photos.length}</b> protected fingerprint(s)</div>
+          <div id="mock-preview" class="center muted" style="padding:28px 0;border:1.5px dashed var(--line);border-radius:12px">Nothing selected</div>
+          <div id="mock-verdict"></div>
+          <div class="hint">Illustrative only: not a real platform. In production the platform runs this check on the server, with the fingerprint you consented to share.</div></div></div></div>`;
+
+    const attempt = async (src, label) => {
+      const reg = (await Store.all('shield'));
+      const fp = Shield.fingerprint(src);
+      const m = Shield.match(fp, reg);
+      const pv = canvasEl(240, 240); const ctx = pv.getContext('2d'); const sw = src.naturalWidth || src.width, sh = src.naturalHeight || src.height;
+      const s = Math.min(sw, sh); ctx.drawImage(src, (sw - s) / 2, (sh - s) / 2, s, s, 0, 0, 240, 240);
+      $('#mock-preview').innerHTML = ''; $('#mock-preview').style.padding = '0'; $('#mock-preview').appendChild(pv); pv.style.cssText = 'width:100%;border-radius:12px;display:block';
+      const cfg = {
+        block: ['block', 'alert', `Blocked. This image matches a protected photo (${m.dist}/64 bits differ). It was never published.`],
+        review: ['review', 'eye', `Held for human review. Similar to a protected photo (${m.dist}/64 bits differ).`],
+        allow: ['allow', 'check', reg.length ? `Allowed. No close match (nearest differs by ${m.dist}/64 bits).` : 'Allowed. The registry is empty.'],
+      }[m.verdict];
+      $('#mock-verdict').innerHTML = `<div class="verdict ${cfg[0]}">${icon(cfg[1])}<div>${cfg[2]}<div class="small" style="font-weight:500">${esc(label)} · block ≤ ${Shield.BLOCK}, review ≤ ${Shield.REVIEW}</div></div></div>`;
+      $('#mock-verdict').scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    };
+
+    const gen = async src => {
+      const vs = await Shield.variants(src);
+      const host = $('#vars'); host.innerHTML = '';
+      vs.forEach(v => {
+        const d = document.createElement('button'); d.className = 'variant'; d.type = 'button';
+        d.appendChild(v.canvas); d.appendChild(document.createTextNode(v.label));
+        d.onclick = () => attempt(v.canvas, v.label); host.appendChild(d);
+      });
+    };
+    $('#gen').onclick = () => { const src = Shield.state.source || (photos.length ? Shield.sample(1) : null); if (!src) return toast('Protect a photo first', 'warn'); gen(src); };
+    $('#qs').onclick = async () => {
+      const src = Shield.sample(1), fp = Shield.fingerprint(src), rec = { id: uid(), label: 'Sample photo', h: fp.h, m: fp.m, createdAt: new Date().toISOString() };
+      await Store.put('shield', rec.id, rec); Shield.state.source = src; toast('Sample protected'); await gen(src);
+    };
+    wireDrop('tf', async f => { const { img } = await loadImage(f); attempt(img, f.name); });
+  }
+
+  /* ---------- tab 3: forensics ---------- */
+  function checkTab(body) {
+    body.innerHTML = `<div class="split"><div class="stack">
+      <div class="card"><div class="card-title"><span class="ic gold">${icon('search')}</span>Check a suspicious photo</div>
+        <p class="muted">Look for hints that an image was edited, and see what hidden data it carries. This runs entirely on your device.</p>
+        ${dropzone('cf', 'Drop the photo you want to examine')}
+        <div class="card warn" style="margin-top:14px"><b>Assistive, not proof.</b> Modern AI fakes can pass these checks, and honest photos can fail them. Use this to decide what to preserve and report, then ask the cybercrime cell for a formal forensic examination.</div></div></div>
+      <div id="cf-out" class="stack"><div class="card muted center">Results will appear here.</div></div></div>`;
+    wireDrop('cf', async f => {
+      const buf = await f.arrayBuffer(), { img } = await loadImage(f);
+      const ex = Forensics.parseExif(buf), el = await Forensics.ela(img);
+      const lvl = { low: ['safe', 'No strong inconsistency'], medium: ['warn', 'Some inconsistency'], high: ['danger', 'Notable inconsistency'] }[el.level];
+      const out = $('#cf-out');
+      out.innerHTML = `<div class="card"><div class="card-title">Error Level Analysis <span class="chip ${lvl[0]}">${lvl[1]}</span></div>
+          <div class="grid g2"><div><div class="lbl small">Original</div><img class="thumb" src="${URL.createObjectURL(f)}" alt="original" style="aspect-ratio:auto"></div>
+          <div><div class="lbl small">ELA (brighter = recompressed differently)</div><div id="ela-host"></div></div></div>
+          <p class="hint" style="margin-top:10px">Compression variation score ${el.cv} · ${el.outliers}% of regions are outliers. Edited or pasted regions often compress differently from the rest, but screenshots, filters and resaves also do.</p></div>
+        <div class="card"><div class="card-title">Hidden data (EXIF)</div>${exifHtml(ex, f)}</div>`;
+      el.canvas.style.cssText = 'width:100%;border-radius:12px;display:block'; $('#ela-host').appendChild(el.canvas);
+    });
+  }
+  function exifHtml(ex, f) {
+    if (!ex.found) return `<p class="muted">${ex.format === 'not-jpeg' ? 'Not a JPEG, so no EXIF block to read (PNGs and screenshots usually carry none).' : 'No EXIF data found. Nothing hidden to leak.'}</p>`;
+    return `<dl class="kv"><dt>Device</dt><dd>${esc([ex.make, ex.model].filter(Boolean).join(' ') || 'not recorded')}</dd><dt>Software</dt><dd>${esc(ex.software || 'not recorded')}</dd><dt>Date taken</dt><dd>${esc(ex.date || 'not recorded')}</dd>
+      <dt>GPS</dt><dd>${ex.gps ? `<span class="chip danger">Location embedded</span> ${ex.gps.lat.toFixed(5)}, ${ex.gps.lon.toFixed(5)}` : '<span class="chip safe">No location</span>'}</dd></dl>
+      ${ex.gps ? '<p class="small" style="margin-top:10px"><b>Anyone who receives this file can see where it was taken.</b> Use the Privacy cleaner before sharing.</p>' : ''}`;
+  }
+
+  /* ---------- tab 4: privacy cleaner ---------- */
+  function cleanTab(body) {
+    body.innerHTML = `<div class="split"><div class="card"><div class="card-title"><span class="ic safe">${icon('eye')}</span>Strip hidden data before you share</div>
+      <p class="muted">Photos can carry the exact GPS location of your home, your phone model and the time. Drop a photo to see what it reveals, then download a clean copy.</p>
+      ${dropzone('cl', 'Drop a photo to clean')}</div><div id="cl-out" class="card muted center">Results will appear here.</div></div>`;
+    wireDrop('cl', async f => {
+      const buf = await f.arrayBuffer(), { img } = await loadImage(f), ex = Forensics.parseExif(buf), blob = await Forensics.clean(img);
+      $('#cl-out').className = 'card'; $('#cl-out').innerHTML = `<div class="card-title">What this photo reveals</div>${exifHtml(ex, f)}
+        <hr style="border:0;border-top:1px solid var(--line);margin:16px 0"><div class="verdict allow">${icon('check')}<div>Clean copy ready: all metadata removed.<div class="small" style="font-weight:500">${(f.size / 1024).toFixed(0)} KB → ${(blob.size / 1024).toFixed(0)} KB</div></div></div>
+        <button class="btn primary" style="margin-top:12px" id="dl-clean">${icon('download')} Download clean copy</button>`;
+      $('#dl-clean').onclick = () => download('clean-' + f.name.replace(/\.[^.]+$/, '') + '.jpg', blob);
+    });
+  }
+})();
+
+</script>
+<script>
+'use strict';
+/*
+ * Evidence Vault — append-only, hash-chained, encrypted.
+ * Every entry stores the SHA-256 of each file, a timestamp, and the hash of the previous entry.
+ * Editing or removing any past entry breaks every later link, so tampering is detectable.
+ * Exports a printable report with a Bharatiya Sakshya Adhiniyam s.63 certificate template.
+ */
+const Vault = (() => {
+  const GENESIS = '0'.repeat(64);
+
+  const canonical = e => JSON.stringify({ v: 1, createdAt: e.createdAt, platform: e.platform, url: e.url, handle: e.handle, desc: e.desc, seen: e.seen, files: e.files.map(f => f.sha256), prevHash: e.prevHash });
+  const hashEntry = e => sha256(canonical(e));
+
+  async function list() { return (await Store.all('evidence')).sort((a, b) => a.createdAt.localeCompare(b.createdAt)); }
+
+  async function add({ platform, url, handle, desc, seen, files }) {
+    const all = await list();
+    const prevHash = all.length ? all[all.length - 1].entryHash : GENESIS;
+    const fmeta = [];
+    for (const f of files) {
+      const buf = await f.arrayBuffer(), blobId = uid();
+      await Store.putBlob(blobId, buf);
+      fmeta.push({ name: f.name, type: f.type || 'application/octet-stream', size: f.size, sha256: await sha256(buf), blobId });
+    }
+    const e = { id: uid(), createdAt: new Date().toISOString(), platform, url, handle: (handle || '').trim(), desc, seen: seen || '', files: fmeta, prevHash };
+    e.entryHash = await hashEntry(e);
+    await Store.put('evidence', e.id, e);
+    return e;
+  }
+
+  async function verify(entries) {
+    let prev = GENESIS;
+    for (let i = 0; i < entries.length; i++) {
+      const e = entries[i];
+      if (e.prevHash !== prev || (await hashEntry(e)) !== e.entryHash) return { ok: false, brokenAt: i };
+      prev = e.entryHash;
+    }
+    return { ok: true, head: prev, count: entries.length };
+  }
+
+  const normHandle = h => (h || '').toLowerCase().replace(/^@/, '').trim();
+  function linked(entries) {
+    const g = {};
+    entries.forEach(e => { const k = normHandle(e.handle); if (k) (g[k] = g[k] || []).push(e); });
+    return Object.entries(g).filter(([, v]) => v.length > 1).map(([handle, items]) => ({ handle, items }));
+  }
+
+  async function reportHtml(entries, who = {}) {
+    const v = await verify(entries);
+    const rows = [];
+    for (const [i, e] of entries.entries()) {
+      let imgs = '';
+      for (const f of e.files) if (/^image\//.test(f.type)) {
+        const buf = await Store.getBlob(f.blobId);
+        if (buf) imgs += `<img src="${await blobToDataURL(new Blob([buf], { type: f.type }))}" alt="">`;
+      }
+      rows.push(`<section class="e"><h3>Exhibit ${i + 1}: ${esc(e.platform)}${e.handle ? ' · ' + esc(e.handle) : ''}</h3>
+        <table><tr><th>Recorded in vault (UTC)</th><td>${esc(e.createdAt)}</td></tr>
+        ${e.seen ? `<tr><th>Content seen / received at</th><td>${esc(e.seen)}</td></tr>` : ''}
+        <tr><th>URL / location</th><td>${esc(e.url || '—')}</td></tr><tr><th>Description</th><td>${esc(e.desc)}</td></tr>
+        <tr><th>Previous entry hash</th><td class="m">${e.prevHash}</td></tr><tr><th>Entry hash (SHA-256)</th><td class="m">${e.entryHash}</td></tr>
+        ${e.files.map(f => `<tr><th>File</th><td>${esc(f.name)} (${f.size} bytes)<br><span class="m">SHA-256: ${f.sha256}</span></td></tr>`).join('')}</table>
+        <div class="imgs">${imgs}</div></section>`);
+    }
+    const hashes = entries.flatMap(e => e.files.map(f => `${f.name}: ${f.sha256}`)).join('\n');
+    return `<!doctype html><html><head><meta charset="utf-8"><title>Kavach Evidence Report</title><style>
+      body{font:14px/1.55 Georgia,serif;color:#1b1220;max-width:820px;margin:28px auto;padding:0 20px}h1{font-size:26px;margin:0}h2{border-bottom:2px solid #8E2A5B;padding-bottom:4px;margin-top:34px}
+      .bar{background:#2A1235;color:#fff;padding:14px 18px;border-radius:10px;display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+      table{width:100%;border-collapse:collapse;margin:8px 0}th,td{border:1px solid #d9cfd9;padding:6px 9px;text-align:left;vertical-align:top}th{width:200px;background:#faf3f6;font-family:sans-serif;font-size:12px}
+      .m{font-family:ui-monospace,monospace;font-size:11px;word-break:break-all}.e{page-break-inside:avoid;margin-bottom:22px}.imgs img{max-width:48%;margin:4px;border:1px solid #ddd}
+      .ok{background:#e3f3ef;border:1px solid #1F7A6D;padding:10px 14px;border-radius:8px}.bad{background:#fce8ea;border:1px solid #C5283D;padding:10px 14px;border-radius:8px}
+      pre{white-space:pre-wrap;background:#faf3f6;padding:12px;border-radius:8px}button{padding:9px 16px;border-radius:99px;border:0;background:#E4572E;color:#fff;font-weight:700;cursor:pointer}@media print{.noprint{display:none}}</style></head><body>
+      <div class="bar"><div><h1 style="color:#fff">Digital Evidence Report</h1><small>Generated by Kavach · ${new Date().toISOString()}</small></div><button class="noprint" onclick="print()">Print / Save as PDF</button></div>
+      <p><b>Prepared for:</b> ${esc(who.name || 'Complainant (name withheld)')} &nbsp; <b>Exhibits:</b> ${entries.length}</p>
+      <div class="${v.ok ? 'ok' : 'bad'}"><b>Integrity check:</b> ${v.ok ? `all ${v.count} entries form an unbroken SHA-256 hash chain. Chain head: <span class="m">${v.head}</span>` : `chain BROKEN at exhibit ${v.brokenAt + 1}. Records may have been altered.`}</div>
+      <h2>Exhibits</h2>${rows.join('') || '<p>No entries.</p>'}
+      <h2>Annexure A: How to verify this report</h2>
+      <p>1. For each file, compute its SHA-256 (<code>sha256sum file</code> on Linux/macOS, <code>certutil -hashfile file SHA256</code> on Windows) and compare it with the value above. 2. Each exhibit's “entry hash” is the SHA-256 of its recorded fields plus the previous entry hash; altering any exhibit changes every later hash. 3. The chain head above can be independently timestamped (for example, e-mailed to a third party) to fix the latest state at a point in time.</p>
+      <h2>Annexure B: Certificate for electronic records (template)</h2>
+      <p><i>Template for a certificate under Section 63(4)(c) of the Bharatiya Sakshya Adhiniyam, 2023 (which replaced Section 65B of the Indian Evidence Act). Have a lawyer review and complete it. It must be signed by the person in charge of the device and, where required, an expert.</i></p>
+      <pre>CERTIFICATE
+I, ____________________ (name), son/daughter/wife of ____________________, residing at ____________________, do hereby certify:
+1. I am the person who owns / is in lawful control of the device(s): ____________________ used to create and store the electronic record(s) described below.
+2. The computer/device was operating properly during the relevant period, and the electronic record(s) were produced in the ordinary course of my use of it.
+3. The information in the record(s) is a true reproduction of what was received/displayed on ____________________ (platform) on ____________________ (date/time).
+4. The record(s) are identified by the following SHA-256 hash values:
+${hashes || '(none)'}
+Date: ____________  Place: ____________        Signature: ____________________
+
+PART B (EXPERT, if applicable): ____________________</pre>
+      <p style="color:#6b5a72;font-size:12px">Kavach is a self-help tool, not a law firm. This report supports a complaint; it does not guarantee admissibility. Original files should be preserved.</p></body></html>`;
+  }
+
+  return { list, add, verify, linked, reportHtml, GENESIS };
+})();
+
+if (typeof module !== 'undefined') module.exports = {};
+
+/* ============================== VIEW ============================== */
+(function () {
+  const PLATFORMS = ['Instagram', 'Facebook', 'X (Twitter)', 'WhatsApp', 'Telegram', 'Snapchat', 'YouTube', 'Email / SMS', 'Dating app', 'Website / other'];
+
+  Router.register('vault', async root => {
+    if (!Store.isOpen()) { root.innerHTML = `<div class="page"><div class="card warn"><b>Unlock Kavach to open your vault.</b></div></div>`; return; }
+    const entries = await Vault.list(), v = await Vault.verify(entries), links = Vault.linked(entries);
+    const draftNew = location.hash.includes('new');
+    root.innerHTML = `<div class="page">
+      <div class="page-head"><div class="eyebrow">${icon('lock')} Evidence Vault</div><h1>Proof that holds up.</h1>
+        <p class="lead">Save screenshots, links and messages the moment they arrive. Each entry is fingerprinted, timestamped and chained to the one before it, then encrypted on this device.</p></div>
+      <div class="card ${v.ok ? 'safe' : 'danger'}" style="margin-bottom:18px"><div class="spread"><div class="row">${icon(v.ok ? 'check' : 'alert')}
+        <div><b>${entries.length ? (v.ok ? 'Chain intact' : 'Chain broken: records may have been altered') : 'Vault is empty'}</b>
+        <div class="small muted">${entries.length ? (v.ok ? `${entries.length} entr${entries.length > 1 ? 'ies' : 'y'} · head <span class="mono">${short(v.head, 12)}</span>` : `First broken link: entry ${v.brokenAt + 1}`) : 'Add your first piece of evidence below.'}</div></div></div>
+        <div class="row"><button class="btn sm" id="vfy" ${entries.length ? '' : 'disabled'}>${icon('shield')} Re-verify</button>
+        <button class="btn sm" id="mail" ${entries.length ? '' : 'disabled'}>${icon('send')} Email chain head to someone I trust</button>
+        <button class="btn sm primary" id="exp" ${entries.length ? '' : 'disabled'}>${icon('file')} Export court-ready report</button></div></div></div>
+      <div class="split">
+        <div class="card" id="addcard"><div class="card-title"><span class="ic coral">${icon('plus')}</span>Add evidence</div>
+          <form id="vf"><div class="grid g2"><div class="field"><label>Where did it happen?</label><select id="vp">${PLATFORMS.map(p => `<option>${p}</option>`).join('')}</select></div>
+          <div class="field"><label>Their username / number</label><input type="text" id="vh" placeholder="@handle or +91…"></div></div>
+          <div class="field"><label>Link (URL) to the post, profile or chat</label><input type="text" id="vu" placeholder="https://…"></div>
+          <div class="field"><label>When did you see / receive it?</label><input type="datetime-local" id="vs"></div>
+          <div class="field"><label>What happened? (in your own words)</label><textarea id="vd" placeholder="e.g. He threatened to share my photos unless I paid ₹20,000 by tonight."></textarea></div>
+          <div class="field"><label>Screenshots or files</label>
+            <label class="drop" for="vfiles"><span>${icon('upload')}</span><b id="vfn">Tap to add screenshots, screen recordings or files</b><span class="hint">Original files are best. Do not edit or crop them.</span><input type="file" id="vfiles" multiple hidden></label></div>
+          <button class="btn primary block" type="submit">${icon('lock')} Seal into vault</button></form></div>
+        <div class="stack"><div class="card"><div class="card-title"><span class="ic">${icon('clock')}</span>Timeline <span class="chip">${entries.length}</span></div>
+          <div class="tl" id="tl">${entries.length ? [...entries].reverse().map(e => `<div class="node"><div class="entry"><div class="spread"><span class="chip">${esc(e.platform)}</span><span class="hint">${fmt(e.createdAt)}</span></div>
+            <p style="margin:8px 0 4px"><b>${esc(e.handle || 'Unknown sender')}</b></p><p class="small muted" style="margin:0 0 8px">${esc(e.desc.length > 130 ? e.desc.slice(0, 130) + '…' : e.desc)}</p>
+            <div class="row"><span class="mono muted">#${short(e.entryHash, 8)}</span>${e.files.length ? `<span class="chip gray">${e.files.length} file${e.files.length > 1 ? 's' : ''}</span>` : ''}<button class="btn sm ghost" data-open="${e.id}">Details &amp; verify</button></div></div></div>`).join('') : '<p class="muted">Nothing here yet.</p>'}</div></div>
+          ${links.length ? `<div class="card warn"><div class="card-title">${icon('link')} Pattern: same person, repeat incidents</div>${links.map(l => `<p style="margin:0 0 6px"><b>${esc(l.handle)}</b> appears in <b>${l.items.length}</b> entries. Repeated conduct strengthens a complaint (stalking / harassment).</p>`).join('')}</div>` : ''}
+        </div></div></div>`;
+
+    if (draftNew) $('#vd').focus();
+    $('#vfiles').onchange = e => { $('#vfn').textContent = e.target.files.length ? `${e.target.files.length} file(s) selected` : 'Tap to add screenshots, screen recordings or files'; };
+    $('#vf').onsubmit = async ev => {
+      ev.preventDefault();
+      const desc = $('#vd').value.trim(); if (!desc) return toast('Please describe what happened', 'warn');
+      const btn = ev.submitter; btn.disabled = true;
+      await Vault.add({ platform: $('#vp').value, url: $('#vu').value.trim(), handle: $('#vh').value, desc, seen: $('#vs').value, files: [...$('#vfiles').files] });
+      toast('Sealed into your vault'); Router.render();
+    };
+    $('#vfy').onclick = async () => { const r = await Vault.verify(await Vault.list()); toast(r.ok ? 'Chain verified: no tampering detected' : 'Chain BROKEN', r.ok ? '' : 'warn'); };
+    $('#exp').onclick = async () => {
+      const net = await Store.get('kv', 'net', {}); const html = await Vault.reportHtml(entries, { name: net.name });
+      const url = URL.createObjectURL(new Blob([html], { type: 'text/html' })); window.open(url, '_blank') || download('kavach-evidence-report.html', html, 'text/html');
+    };
+    $('#mail').onclick = () => {
+      const body = `Kavach evidence chain head (SHA-256):\n${v.head}\nEntries: ${entries.length}\nTimestamp: ${new Date().toISOString()}\n\nPlease keep this email. It independently records the state of my evidence vault at this time.`;
+      location.href = `mailto:?subject=${encodeURIComponent('Kavach evidence checkpoint')}&body=${encodeURIComponent(body)}`;
+    };
+    $$('[data-open]', root).forEach(b => b.onclick = () => openEntry(entries.find(e => e.id === b.dataset.open)));
+  });
+
+  async function openEntry(e) {
+    let thumbs = '';
+    for (const f of e.files) if (/^image\//.test(f.type)) { const buf = await Store.getBlob(f.blobId); if (buf) thumbs += `<img class="thumb" src="${URL.createObjectURL(new Blob([buf], { type: f.type }))}" alt="">`; }
+    modal(`<div class="spread"><h2>${esc(e.platform)} · ${esc(e.handle || 'Unknown')}</h2><button class="btn sm ghost" data-close>${icon('x')}</button></div>
+      <dl class="kv"><dt>Recorded</dt><dd>${esc(e.createdAt)}</dd>${e.seen ? `<dt>Seen at</dt><dd>${esc(e.seen)}</dd>` : ''}<dt>Link</dt><dd>${esc(e.url || '—')}</dd><dt>Description</dt><dd>${esc(e.desc)}</dd>
+      <dt>Prev hash</dt><dd class="mono">${e.prevHash}</dd><dt>Entry hash</dt><dd class="mono">${e.entryHash}</dd></dl>
+      ${thumbs ? `<div class="thumbs" style="margin:14px 0">${thumbs}</div>` : ''}
+      ${e.files.map((f, i) => `<div class="entry" style="margin-top:10px"><b>${esc(f.name)}</b> <span class="hint">${f.size} bytes</span><div class="mono">SHA-256 ${f.sha256}</div>
+        <label class="btn sm" style="margin-top:8px">${icon('shield')} Verify against original file<input type="file" hidden data-v="${i}"></label><span class="small" id="vr${i}" style="margin-left:8px"></span></div>`).join('')}`);
+    $$('[data-v]', $('#modal')).forEach(inp => inp.onchange = async () => {
+      const f = e.files[+inp.dataset.v], h = await sha256(await inp.files[0].arrayBuffer()), r = $('#vr' + inp.dataset.v);
+      r.innerHTML = h === f.sha256 ? '<span class="chip safe">Match: identical file</span>' : '<span class="chip danger">No match: file differs</span>';
+    });
+  }
+})();
+
+</script>
+<script>
+'use strict';
+/*
+ * Report & Takedown — turns a frightening situation into a clear plan:
+ *  1. Analyze what is happening (rule-based, on-device, explainable).
+ *  2. Draft a complaint for cybercrime.gov.in / the cyber cell, with indicative legal provisions.
+ *  3. Draft a platform takedown notice citing the 24-hour rule of the IT Rules, 2021.
+ *  4. Track every report and follow-up deadline in one place.
+ * Legal mappings are INDICATIVE. Police decide the sections; a lawyer should verify.
+ */
+const Legal = (() => {
+  const S = {
+    it66C: 'IT Act s.66C (identity theft)', it66D: 'IT Act s.66D (cheating by personation using a computer resource)',
+    it66E: 'IT Act s.66E (violation of privacy)', it67: 'IT Act s.67 (publishing obscene material electronically)',
+    it67A: 'IT Act s.67A (publishing sexually explicit material electronically)',
+    b75: 'BNS s.75 (sexual harassment)', b77: 'BNS s.77 (voyeurism)', b78: 'BNS s.78 (stalking, including electronic monitoring)',
+    b79: 'BNS s.79 (word, gesture or act intended to insult the modesty of a woman)', b308: 'BNS s.308 (extortion)',
+    b319: 'BNS s.319 (cheating by personation)', b351: 'BNS s.351 (criminal intimidation)', b356: 'BNS s.356 (defamation)',
+  };
+  const T = {
+    sextortion: { label: 'Sextortion / blackmail', secs: ['b308', 'b351', 'it66E', 'it67A', 'b79'], rx: [/blackmail|sextort/i, /(send|pay|transfer|upi|gpay|paytm|bitcoin|crypto|money|₹|rs\.?\s?\d|rupee)/i, /(leak|viral|share|post|expose|send (it )?to (your|all)|tell (your )?(family|parents|husband|friends)|contacts)/i, /(nude|naked|video call|private (photo|video|pic)|intimate|screenshot|recorded|recording)/i, /(or else|otherwise|if you (don'?t|do not)|last chance|within \d+ ?(hour|hrs|min)|by tonight|today only)/i] },
+    nci: { label: 'Non-consensual intimate images', secs: ['it66E', 'it67', 'it67A', 'b77', 'b79'], rx: [/(nude|naked|intimate|private (photo|video|pic)|leaked|sex tape|mms)/i, /(posted|uploaded|shared|circulat|viral|telegram group|website)/i] },
+    deepfake: { label: 'Morphed image / deepfake', secs: ['it66C', 'it66D', 'it66E', 'it67A', 'b356', 'b79'], rx: [/(morph|deepfake|deep fake|fake (photo|video|image|nude)|edited (photo|picture|my face)|ai[- ]generated|face.?swap)/i] },
+    impersonation: { label: 'Impersonation / fake profile', secs: ['it66C', 'it66D', 'b319', 'b356'], rx: [/(fake (account|profile|id)|impersonat|pretending to be me|using my (photos?|pics?|name|number)|cloned)/i] },
+    stalking: { label: 'Stalking / persistent harassment', secs: ['b78', 'b79', 'b351'], rx: [/(stalk|following me|keeps? (messaging|calling|texting)|new (accounts?|numbers?)|won'?t stop|tracking|knows where i)/i] },
+    threat: { label: 'Threats / intimidation', secs: ['b351', 'b79'], rx: [/(i will (kill|hurt|beat|find|rape|destroy)|going to (kill|hurt|rape)|threat|acid|will not leave you|you will regret)/i] },
+    doxxing: { label: 'Doxxing / privacy exposure', secs: ['b78', 'b351', 'it66E'], rx: [/(my (address|phone number|number|workplace|college|location) (was|is|has been)? ?(posted|shared|leaked|public)|doxx|posted my (address|number)|knows my (address|home))/i] },
+    harassment: { label: 'Online sexual harassment / abuse', secs: ['b75', 'b79', 'b351'], rx: [/(obscene|vulgar|dirty (message|text)|sexual (message|comment|remark)|dick pic|unsolicited|abus(e|ive)|slut|whore|rate you|sexually)/i] },
+  };
+
+  function analyze(text) {
+    const found = [];
+    for (const [key, def] of Object.entries(T)) {
+      const cues = []; let score = 0;
+      def.rx.forEach(rx => { const m = text.match(rx); if (m) { score++; cues.push(m[0]); } });
+      const need = (key === 'sextortion' || key === 'nci') ? 2 : 1;
+      if (score >= need) found.push({ key, label: def.label, score, cues, secs: def.secs.map(s => S[s]) });
+    }
+    found.sort((a, b) => b.score - a.score);
+    const money = /(pay|transfer|upi|bitcoin|money|₹|rs\.?\s?\d)/i.test(text), deadline = /(tonight|today|within \d+|hours?|last chance|deadline)/i.test(text);
+    const sx = found.find(f => f.key === 'sextortion');
+    let urgency = 'medium';
+    if (found.some(f => ['threat', 'sextortion', 'nci'].includes(f.key))) urgency = 'high';
+    if ((sx && money && deadline) || (found.some(f => f.key === 'threat') && /(kill|acid|rape)/i.test(text))) urgency = 'critical';
+    return { found, urgency };
+  }
+  const labelOf = k => (T[k] || {}).label || k;
+  const sectionsFor = k => ((T[k] || {}).secs || []).map(s => S[s]);
+
+  function buildComplaint(f) {
+    const secs = sectionsFor(f.type);
+    const ann = (f.evidence || []).map((e, i) => `   ${i + 1}. ${e.platform}${e.handle ? ' / ' + e.handle : ''}, recorded ${e.createdAt}. ${e.files.map(x => `${x.name} (SHA-256 ${x.sha256})`).join('; ') || 'no attachment'}`).join('\n');
+    return `To,
+The Officer-in-Charge,
+Cyber Crime Cell / Police Station${f.city ? ', ' + f.city : ''}${f.state ? ', ' + f.state : ''}
+
+Date: ${new Date().toLocaleDateString('en-IN', { dateStyle: 'long' })}
+
+Subject: Complaint regarding ${labelOf(f.type).toLowerCase()}; request to register an FIR and to take urgent steps to remove the content and preserve digital records.
+
+Respected Sir/Madam,
+
+1. I, ${f.name || '[Your full name]'}, resident of ${f.address || '[Your address]'}, contact number ${f.phone || '[Your phone]'}, wish to report the following offence.
+
+2. Nature of offence: ${labelOf(f.type)}.
+   Platform / medium: ${f.platform || '[Platform or phone/e-mail used]'}.
+   Account / number of the person responsible (if known): ${f.handle || 'Unknown'}.
+   Link(s) to the content: ${f.urls || '[URLs]'}.
+   Date and time of the incident(s): ${f.when || '[Date / time]'}.
+
+3. Facts of the case:
+${(f.desc || '[Describe what happened, in order, in your own words.]').split('\n').map(l => '   ' + l).join('\n')}
+
+4. I have preserved the relevant digital evidence in a tamper-evident form. Each item carries a SHA-256 hash and a recorded timestamp (Annexure 1). I am ready to hand over the original files and devices.
+${ann ? '\nAnnexure 1: Evidence list\n' + ann + '\n' : ''}
+5. The facts disclosed appear to attract, among others, the following provisions (indicative; kindly apply the appropriate sections):
+${secs.map(s => '   • ' + s).join('\n')}
+
+6. I therefore request that you:
+   (a) register an FIR / take cognizance of this complaint;
+   (b) issue notice to the concerned intermediary to remove the content at once and to preserve and share account, IP and device logs of the accused;
+   (c) take action to identify and apprehend the person responsible; and
+   (d) keep my identity confidential and protect me from further harassment.
+
+7. I declare that the above information is true to the best of my knowledge.
+
+Yours faithfully,
+${f.name || '[Your name]'}
+Phone: ${f.phone || '[Phone]'}
+
+Complaint also filed on the National Cyber Crime Reporting Portal (cybercrime.gov.in): Acknowledgement No. ${f.ack || '[if filed]'}`;
+  }
+
+  const PLATFORMS = {
+    Instagram: 'Instagram Trust & Safety', Facebook: 'Meta Trust & Safety / Grievance Officer', 'X (Twitter)': 'X Trust & Safety', WhatsApp: 'WhatsApp Grievance Officer (India)',
+    Telegram: 'Telegram Abuse team', Snapchat: 'Snap Trust & Safety', YouTube: 'YouTube / Google Grievance Officer', 'Google Search': 'Google (Search removals)', Other: 'Platform Grievance Officer',
+  };
+  function buildTakedown(f) {
+    const nc = ['sextortion', 'nci', 'deepfake', 'impersonation'].includes(f.type);
+    return `Subject: URGENT: request to remove ${labelOf(f.type).toLowerCase()} content (${f.platform})
+
+To: ${PLATFORMS[f.platform] || 'Grievance Officer'}
+
+I am the person affected by the content below${f.rep ? ' (reporting as her authorised representative)' : ''}. It violates your community standards and Indian law. Please act on it immediately.
+
+Account / handle: ${f.handle || 'Unknown'}
+Content link(s): ${f.urls || '[URLs]'}
+Type of violation: ${labelOf(f.type)}
+First seen: ${f.when || '[date]'}
+
+${nc ? `This complaint concerns content that exposes private areas, shows nudity or a sexual act, or impersonates me (including morphed or AI-generated images) without my consent. Under Rule 3(2)(b) of the Information Technology (Intermediary Guidelines and Digital Media Ethics Code) Rules, 2021, intermediaries are required to remove such content within 24 hours of a complaint by the individual concerned.\n` : `This content constitutes harassment and criminal intimidation. Intermediaries must act on valid complaints under the IT Rules, 2021.\n`}
+I request that you:
+1. Remove the content and disable the account(s) responsible.
+2. Prevent re-uploads of the same or similar content (hash-based blocking).
+3. Preserve all related data (account details, IP logs, upload times) for law enforcement. I have filed / will file a complaint${f.ack ? ' (Acknowledgement No. ' + f.ack + ')' : ''} with the cyber crime authorities.
+4. Confirm in writing what action you have taken, within 24 hours.
+
+If this is not resolved within the prescribed time, I will escalate to your India Grievance Officer, the Grievance Appeal Committee and the police.
+
+Name: ${f.name || '[Your name]'}
+Contact: ${f.phone || '[Phone / e-mail]'}`;
+  }
+
+  return { analyze, buildComplaint, buildTakedown, labelOf, sectionsFor, T, PLATFORMS };
+})();
+
+if (typeof module !== 'undefined') module.exports = { Legal };
+
+/* ============================== VIEW ============================== */
+(function () {
+  let tab = 'analyze', draft = { type: 'sextortion', platform: 'Instagram' };
+  const TYPES = Object.entries(Legal.T).map(([k, v]) => [k, v.label]);
+
+  Router.register('report', async root => {
+    const tabs = [['analyze', 'Understand'], ['complaint', 'Complaint letter'], ['takedown', 'Platform takedown'], ['cases', 'Case tracker']];
+    root.innerHTML = `<div class="page"><div class="page-head"><div class="eyebrow">${icon('file')} Report &amp; Takedown</div><h1>From panic to a plan.</h1>
+      <p class="lead">Describe what is happening. Kavach explains it, drafts the complaint and takedown notice, and tracks every follow-up so nothing slips.</p></div>
+      <div class="tabs" role="tablist">${tabs.map(([k, l]) => `<button class="tab ${tab === k ? 'on' : ''}" data-tab="${k}">${l}</button>`).join('')}</div><div id="rbody"></div></div>`;
+    $$('.tab', root).forEach(b => b.onclick = () => { tab = b.dataset.tab; Router.render(); });
+    await ({ analyze: analyzeTab, complaint: complaintTab, takedown: takedownTab, cases: casesTab })[tab]($('#rbody'));
+  });
+
+  const typeSelect = (id, val) => `<select id="${id}">${TYPES.map(([k, l]) => `<option value="${k}" ${k === val ? 'selected' : ''}>${l}</option>`).join('')}</select>`;
+  const field = (id, label, ph = '', val = '', tag = 'input') => `<div class="field"><label for="${id}">${label}</label>${tag === 'textarea' ? `<textarea id="${id}" placeholder="${esc(ph)}">${esc(val)}</textarea>` : `<input type="text" id="${id}" placeholder="${esc(ph)}" value="${esc(val)}">`}</div>`;
+
+  /* ---------- analyze ---------- */
+  function analyzeTab(body) {
+    body.innerHTML = `<div class="split"><div class="card"><div class="card-title"><span class="ic coral">${icon('search')}</span>What is happening?</div>
+      <div class="field"><label for="at">Paste the message, or describe the situation</label><textarea id="at" style="min-height:170px" placeholder="e.g. He has my private photos and says he will send them to my family unless I pay ₹15,000 by tonight."></textarea></div>
+      <div class="row"><button class="btn primary" id="an">${icon('search')} Analyze</button><span class="hint">Runs on your device. Nothing is sent anywhere.</span></div></div>
+      <div id="ar" class="stack"><div class="card muted center">Your analysis will appear here.</div></div></div>`;
+    $('#an').onclick = () => {
+      const text = $('#at').value.trim(); if (!text) return toast('Please write or paste something first', 'warn');
+      const r = Legal.analyze(text), risk = window.Risk ? Risk.assess(text) : { level: 0 };
+      const U = { critical: ['danger', 'Critical: act today'], high: ['warn', 'High priority'], medium: ['gray', 'Needs attention'] }[r.urgency];
+      const hi = text.replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
+      const marked = r.found.flatMap(f => f.cues).filter(Boolean).reduce((h, c) => h.replace(new RegExp(c.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i'), m => `<mark>${m}</mark>`), hi);
+      $('#ar').innerHTML = `${risk.level >= 1 ? `<div class="card danger"><div class="card-title">${icon('heart')} First, you matter more than any of this</div><p>Some of what you wrote sounds like you may be in a very dark place. You do not have to face this alone: free, confidential support is available any time.</p>
+          <div class="row"><a class="btn danger" href="#/sahara">Talk to Sahara</a><a class="btn" href="tel:14416">${icon('phone')} Tele-MANAS 14416</a><a class="btn" href="tel:112">${icon('phone')} 112</a></div></div>` : ''}
+        <div class="card"><div class="spread"><div class="card-title" style="margin:0">Assessment</div><span class="chip ${U[0]}">${U[1]}</span></div>
+          ${r.found.length ? r.found.map(f => `<div class="entry" style="margin-top:12px"><b>${esc(f.label)}</b><div class="hint">Matched: ${f.cues.map(c => `“${esc(c)}”`).join(', ')}</div>
+            <div class="small" style="margin-top:6px">Provisions that may apply (indicative): ${f.secs.map(s => `<span class="chip gray" style="margin:2px">${esc(s)}</span>`).join('')}</div></div>`).join('') : '<p class="muted" style="margin-top:12px">No specific pattern recognised. You can still document and report it. Choose the closest type below.</p>'}
+          <div class="letter" style="margin-top:14px;max-height:160px;font-family:inherit">${marked}</div></div>
+        <div class="card tint"><div class="card-title">Recommended next steps</div><div class="steps">
+          <div class="step"><div><h3>Preserve before anything else</h3><p>Screenshot the chat, profile and any payment request. Do not delete.</p></div></div>
+          <div class="step"><div><h3>${r.urgency === 'critical' ? 'Do not pay. Call 1930 now' : 'Report to the cyber cell'}</h3><p>Online at cybercrime.gov.in or by phone on 1930.</p></div></div>
+          <div class="step"><div><h3>Get the content taken down</h3><p>Send a takedown notice. Platforms must act within 24 hours on intimate or impersonation content.</p></div></div></div>
+          <div class="row" style="margin-top:14px"><a class="btn coral" href="#/vault?new">${icon('lock')} Save evidence</a><button class="btn primary" id="mk">Draft complaint →</button></div></div>`;
+      $('#mk').onclick = () => { draft = { ...draft, type: (r.found[0] || {}).key || draft.type, desc: text }; tab = 'complaint'; Router.render(); };
+    };
+  }
+
+  /* ---------- complaint ---------- */
+  async function complaintTab(body) {
+    const evid = Store.isOpen() ? (await Vault.list()).reverse() : [], net = Store.isOpen() ? await Store.get('kv', 'net', {}) : {};
+    draft = { name: net.name, phone: net.phone, ...draft };
+    body.innerHTML = `<div class="split"><div class="card"><div class="card-title"><span class="ic">${icon('file')}</span>Complaint details</div>
+      <div class="field"><label>Type of offence</label>${typeSelect('ct', draft.type)}</div>
+      <div class="grid g2">${field('cn', 'Your name', 'Full name', draft.name)}${field('cp', 'Your phone', '+91…', draft.phone)}</div>
+      ${field('ca', 'Your address (optional)', '', draft.address)}
+      <div class="grid g2">${field('cc', 'City', '', draft.city)}${field('cs', 'State', '', draft.state)}</div>
+      <div class="grid g2">${field('cpl', 'Platform / medium', 'Instagram, WhatsApp…', draft.platform)}${field('chh', 'Their handle / number', '', draft.handle)}</div>
+      ${field('cu', 'Link(s)', 'https://…', draft.urls)}${field('cw', 'When did it happen?', 'e.g. 5–7 Nov 2026', draft.when)}
+      ${field('cd', 'What happened?', 'Describe in order, in your own words.', draft.desc, 'textarea')}${field('ck', 'cybercrime.gov.in acknowledgement no. (if filed)', '', draft.ack)}
+      ${evid.length ? `<div class="lbl" style="margin-bottom:6px">Attach evidence from your vault</div><div class="stack">${evid.map(e => `<label class="chk"><input type="checkbox" class="ev" value="${e.id}" checked><span><b>${esc(e.platform)}</b> ${esc(e.handle || '')} <span class="hint">${fmt(e.createdAt)}</span></span></label>`).join('')}</div>` : '<p class="hint">Evidence saved in your vault can be attached automatically.</p>'}</div>
+      <div class="stack"><div class="card"><div class="spread"><div class="card-title" style="margin:0">Your letter</div><span class="chip warn">Draft</span></div>
+        <div class="letter" id="lt" style="margin:12px 0"></div>
+        <div class="row"><button class="btn primary" id="lcopy">${icon('copy')} Copy</button><button class="btn" id="ldl">${icon('download')} Download .txt</button><button class="btn" id="lprint">${icon('file')} Print / PDF</button></div>
+        <p class="hint" style="margin-top:10px">Kavach is a self-help tool, not legal advice. Sections shown are indicative; the police decide the final provisions. Please have a lawyer or legal-aid cell review before filing.</p></div>
+        <a class="btn coral block" href="https://cybercrime.gov.in" target="_blank" rel="noopener">${icon('link')} Open cybercrime.gov.in to file</a>
+        <button class="btn block" id="mkcase">${icon('plus')} Start a case in my tracker</button></div></div>`;
+    const read = () => ({ type: $('#ct').value, name: $('#cn').value, phone: $('#cp').value, address: $('#ca').value, city: $('#cc').value, state: $('#cs').value, platform: $('#cpl').value, handle: $('#chh').value, urls: $('#cu').value, when: $('#cw').value, desc: $('#cd').value, ack: $('#ck').value, evidence: evid.filter(e => $$('.ev:checked').some(c => c.value === e.id)) });
+    const draw = () => { draft = { ...draft, ...read() }; $('#lt').textContent = Legal.buildComplaint(draft); };
+    draw(); $$('input,select,textarea', body).forEach(i => i.addEventListener('input', debounce(draw, 150)));
+    $('#lcopy').onclick = () => copy($('#lt').textContent);
+    $('#ldl').onclick = () => download('complaint-draft.txt', $('#lt').textContent);
+    $('#lprint').onclick = () => { const w = window.open('', '_blank'); if (!w) return toast('Allow pop-ups to print', 'warn'); w.document.write(`<pre style="font:14px/1.7 Georgia,serif;white-space:pre-wrap;max-width:780px;margin:30px auto">${esc($('#lt').textContent)}</pre>`); w.document.close(); w.print(); };
+    $('#mkcase').onclick = async () => { await newCase(read()); tab = 'cases'; Router.render(); };
+  }
+
+  /* ---------- takedown ---------- */
+  async function takedownTab(body) {
+    body.innerHTML = `<div class="split"><div class="card"><div class="card-title"><span class="ic coral">${icon('send')}</span>Takedown notice</div>
+      <div class="field"><label>Platform</label><select id="tp">${Object.keys(Legal.PLATFORMS).map(p => `<option ${p === draft.platform ? 'selected' : ''}>${p}</option>`).join('')}</select></div>
+      <div class="field"><label>What kind of content?</label>${typeSelect('tt', draft.type)}</div>
+      ${field('th', 'Account / handle', '', draft.handle)}${field('tu', 'Link(s) to the content', 'one per line', draft.urls, 'textarea')}${field('tw', 'First seen', '', draft.when)}
+      <div class="grid g2">${field('tn', 'Your name', '', draft.name)}${field('tc', 'Your contact', '', draft.phone)}</div>
+      <label class="chk"><input type="checkbox" id="tr"><span>I am reporting on behalf of the affected woman</span></label></div>
+      <div class="stack"><div class="card"><div class="card-title">Your notice</div><div class="letter" id="tl2"></div>
+        <div class="row" style="margin-top:12px"><button class="btn primary" id="tcopy">${icon('copy')} Copy</button><button class="btn coral" id="tsent">${icon('clock')} I sent it: start 24h timer</button></div></div>
+        <div class="card safe"><div class="card-title">${icon('shield')} Stop it spreading</div><p class="small">For intimate images, also register the photo with <a href="https://stopncii.org" target="_blank" rel="noopener">StopNCII.org</a> (adults) so participating platforms block copies. If you were under 18 when the image was taken, use <a href="https://takeitdown.ncmec.org" target="_blank" rel="noopener">Take It Down</a>.</p></div></div></div>`;
+    const read = () => ({ platform: $('#tp').value, type: $('#tt').value, handle: $('#th').value, urls: $('#tu').value, when: $('#tw').value, name: $('#tn').value, phone: $('#tc').value, rep: $('#tr').checked, ack: draft.ack });
+    const draw = () => { draft = { ...draft, ...read() }; $('#tl2').textContent = Legal.buildTakedown(draft); };
+    draw(); $$('input,select,textarea', body).forEach(i => i.addEventListener('input', debounce(draw, 150)));
+    $('#tcopy').onclick = () => copy($('#tl2').textContent);
+    $('#tsent').onclick = async () => {
+      if (!Store.isOpen()) return toast('Unlock Kavach first', 'warn');
+      const c = await newCase({ ...read(), desc: draft.desc }); c.platformReport = { at: new Date().toISOString(), due: new Date(Date.now() + 24 * 3600e3).toISOString() };
+      await Store.put('cases', c.id, c); toast('Timer started: follow-up due in 24 hours'); tab = 'cases'; Router.render();
+    };
+  }
+
+  /* ---------- cases ---------- */
+  async function newCase(f) {
+    const c = { id: uid(), title: `${Legal.labelOf(f.type)}${f.handle ? ' · ' + f.handle : ''}`, type: f.type, platform: f.platform, createdAt: new Date().toISOString(), platformReport: null, police: null, resolved: null };
+    if (Store.isOpen()) await Store.put('cases', c.id, c);
+    return c;
+  }
+  const left = iso => { const ms = new Date(iso) - Date.now(), a = Math.abs(ms), h = Math.floor(a / 3600e3), m = Math.floor(a % 3600e3 / 60e3); return { over: ms < 0, txt: `${h}h ${m}m` }; };
+
+  async function casesTab(body) {
+    if (!Store.isOpen()) { body.innerHTML = '<div class="card warn">Unlock Kavach to see your cases.</div>'; return; }
+    const cases = (await Store.all('cases')).sort((a, b) => b.createdAt.localeCompare(a.createdAt));
+    body.innerHTML = `<div class="spread" style="margin-bottom:14px"><p class="muted" style="margin:0">One place to see what you have reported, what is overdue, and what to do next.</p><button class="btn primary" id="nc">${icon('plus')} New case</button></div>
+      <div class="stack">${cases.length ? cases.map(c => {
+        const steps = [['Evidence saved', c.createdAt], ['Reported to platform', c.platformReport && c.platformReport.at], ['Police / portal complaint', c.police && c.police.at], ['Resolved', c.resolved]], doneN = steps.filter(s => s[1]).length;
+        const d = c.platformReport && !c.resolved ? left(c.platformReport.due) : null;
+        return `<div class="card"><div class="spread"><div><b style="font-size:1.1rem">${esc(c.title)}</b><div class="hint">Opened ${fmt(c.createdAt)}${c.platform ? ' · ' + esc(c.platform) : ''}</div></div>
+          <span class="chip ${c.resolved ? 'safe' : d && d.over ? 'danger' : 'warn'}">${c.resolved ? 'Resolved' : d ? (d.over ? 'Platform overdue ' + d.txt : 'Platform due in ' + d.txt) : 'In progress'}</span></div>
+          <div class="progress" style="margin:14px 0"><i style="width:${doneN / 4 * 100}%"></i></div>
+          <div class="grid g4">${steps.map(s => `<div class="small"><span class="chip ${s[1] ? 'safe' : 'gray'}">${s[1] ? '✓' : '○'}</span> ${s[0]}</div>`).join('')}</div>
+          ${d && d.over ? `<div class="card warn" style="margin-top:12px"><b>The 24-hour window has passed.</b> Escalate: write to the platform’s India Grievance Officer, appeal to the Grievance Appeal Committee, and make sure the police complaint is filed (call 1930).</div>` : ''}
+          ${c.police && c.police.ack ? `<p class="small" style="margin-top:10px">Acknowledgement no: <b>${esc(c.police.ack)}</b></p>` : ''}
+          <div class="row" style="margin-top:14px">
+            ${!c.platformReport ? `<button class="btn sm" data-a="plat" data-id="${c.id}">Mark reported to platform</button>` : ''}
+            ${!c.police ? `<button class="btn sm" data-a="pol" data-id="${c.id}">Mark complaint filed</button>` : ''}
+            ${!c.resolved ? `<button class="btn sm safe" data-a="res" data-id="${c.id}">Mark resolved</button>` : ''}
+            <button class="btn sm ghost" data-a="del" data-id="${c.id}">${icon('trash')}</button></div></div>`; }).join('') : `<div class="card center"><p class="muted">No cases yet. Create one when you report something, and Kavach will track the deadlines.</p></div>`}</div>`;
+    $('#nc').onclick = async () => { await newCase({ type: draft.type, platform: draft.platform, handle: draft.handle }); Router.render(); };
+    $$('[data-a]', body).forEach(b => b.onclick = async () => {
+      const c = cases.find(x => x.id === b.dataset.id), now = new Date().toISOString();
+      if (b.dataset.a === 'plat') c.platformReport = { at: now, due: new Date(Date.now() + 24 * 3600e3).toISOString() };
+      if (b.dataset.a === 'pol') { const ack = prompt('Acknowledgement / complaint number (optional)') || ''; c.police = { at: now, ack }; }
+      if (b.dataset.a === 'res') c.resolved = now;
+      if (b.dataset.a === 'del') { if (!confirm('Delete this case?')) return; await Store.del('cases', c.id); return Router.render(); }
+      await Store.put('cases', c.id, c); Router.render();
+    });
+  }
+})();
+
+</script>
+<script>
+'use strict';
+/*
+ * Sahara — emotional support, designed around consent and honesty.
+ *
+ *  • Risk is detected ON DEVICE, locally, before anything else happens. Crisis flows never depend on a network call.
+ *  • Sahara is a supportive companion, not a therapist and not a person. It says so, and always offers real humans:
+ *    Tele-MANAS 14416 (also 1800-89-14416), Women Helpline 181, emergency 112.
+ *  • The escalation ladder is configured by the woman herself, while she is calm:
+ *      circle (trusted people) → wait for someone to respond → 112 package.
+ *    She sees a countdown and can cancel. Chat contents go to 112 only if she opted in (default: location + phone + risk summary).
+ *  • A browser cannot silently send SMS or reach 112. Without a relay (CONFIG.alertEndpoint) this prototype runs in clearly
+ *    labelled SIMULATION mode, or hands the user one-tap SMS/WhatsApp/call buttons. It never pretends help was dispatched.
+ */
+const CONFIG = {
+  llmEndpoint: '',     // optional: POST {messages, risk} → {reply}. Safety detection still runs locally first.
+  alertEndpoint: '',   // optional: POST {kind:'circle'|'112', ...} to a server that relays SMS/WhatsApp / ERSS-112 integration.
+  get demo() { try { return localStorage.getItem('kv_demo') !== '0'; } catch { return true; } },
+  set demo(v) { try { localStorage.setItem('kv_demo', v ? '1' : '0'); } catch {} },
+};
+
+/* ------------------------------------------------------------------ risk */
+const Risk = (() => {
+  const HIGH = [
+    /\b(suicide|suicidal)\b/i, /\bkill(ing)? myself\b/i, /\b(end(ing)?|take|taking) (my (own )?life|it all)\b/i,
+    /\bwant(ed)? to die\b|\bwanna die\b|\bbetter off dead\b|\bwish (i|that i) (was|were) dead\b/i,
+    /\bno reason to (live|go on)\b|\bdo(n'?t| not) want to (live|be alive|exist|wake up)\b/i,
+    /\b(going|planning|about) to (die|kill myself|end (it|my life))\b/i,
+    /आत्महत्या|खुदकुशी|मरना चाहती|मर जाना चाहती|जीना नहीं चाहती|जान दे दू/,
+    /\b(marna chahti|mar jana chahti|khudkushi|jeena nahi chahti|jaan de dungi|suicide kar)/i,
+  ];
+  const PLAN = /\b(pills|tablets|overdose|rope|hang(ing)? myself|jump(ing)? (off|from)|bridge|terrace|roof|knife|blade|poison|pesticide|gun|tonight|right now|this (evening|night)|after everyone sleeps|goodbye|note)\b/i;
+  const PASSIVE = /\b(disappear|can'?t (go on|do this( any ?more)?|take (it|this)( any ?more)?|cope)|tired of (living|life|everything|fighting)|no way out|nobody would (care|miss)|everyone (would be|is) better (off )?without me|i('m| am) a burden|worthless|hopeless|nothing matters|life is (pointless|meaningless))\b/i;
+
+  function assess(text) {
+    const s = String(text || '');
+    const high = HIGH.some(r => r.test(s)), plan = PLAN.test(s), passive = PASSIVE.test(s);
+    return { level: high && plan ? 3 : high ? 2 : passive ? 1 : 0, high, plan, passive };
+  }
+  return { assess };
+})();
+
+/* ------------------------------------------------------------- companion */
+const Companion = (() => {
+  const state = { awaiting: null, turn: 0, level: 0, lastSafety: '' };
+  const transcript = [];
+  const pick = (arr, n) => arr[n % arr.length];
+  const Q_SAFE = [{ l: "I'm safe right now", v: '__safe__' }, { l: "I'm not sure I'll stay safe", v: '__unsure__' }, { l: "I'm in danger right now", v: '__danger__' }];
+
+  const imminent = () => { state.awaiting = null; state.level = 3; return { level: 3, act: 'esc', msgs: ["I'm really worried about you, and I want you to be safe right now.", "I'm going to help you reach people immediately. You don't have to do anything except stay here with me."], quick: [] }; };
+  const safetyCheck = () => { state.awaiting = 'safety'; state.level = Math.max(state.level, 2); return { level: 2, msgs: ["Thank you for telling me. I'm really glad you said it out loud, and I'm taking it seriously.", "You deserve real people in this with you. First I need to know where things stand: are you safe at this moment?"], quick: Q_SAFE }; };
+  const afterSafe = () => { state.awaiting = null; return { level: 2, msgs: ["I'm glad you're safe right now. Let's make this moment a little safer together.", "If there is anything near you that you could use to hurt yourself, could you put some distance between you and it? Another room, or with someone else.", "Would you be willing to talk with a trained counsellor on Tele-MANAS, 14416? It's free, 24x7, and they speak your language. I'll stay right here while you call."], quick: [{ l: 'Call Tele-MANAS 14416', act: 'call14416' }, { l: 'Let my trusted circle know', act: 'circle' }, { l: 'Build a safety plan', act: 'plan' }, { l: 'Keep talking', v: '__keep__' }] }; };
+
+  const INTENTS = [
+    { id: 'blackmail', rx: /blackmail|sextort|(photo|pic|video|nude|leak|viral).{0,40}(send|post|share|leak|viral|money|pay)|threaten(ing|ed)? (to )?(share|post|leak|send)/i,
+      msgs: ["I'm so sorry. This is frightening, and it is not your fault. Threatening to share someone's images is a crime, and there are things that work.", "Please don't pay and don't delete anything: both matter. I can open the emergency guide, which walks through exactly what to do, step by step."],
+      quick: [{ l: 'Open the emergency guide', act: 'sos' }, { l: 'Not right now', v: '__keep__' }] },
+    { id: 'abuse', rx: /(husband|partner|boyfriend|father|brother|in-?laws?|family|he).{0,40}(hit|beat|abuse|hurt|control|choke|threat)|domestic violence|he hits me|beats me/i,
+      msgs: ["I'm really sorry you're living with that. Your safety comes first.", "If you are in danger right now, call 112. The Women Helpline 181 is also available 24x7. Are you safe at this moment?"], quick: Q_SAFE, setAwait: 'safety' },
+    { id: 'shame', rx: /ashamed|shame|embarrass|my fault|blame myself|disgust(ed|ing)? with myself|ruined/i,
+      msgs: ["What was done to you is not something you did. Shame is exactly what people who hurt others want you to carry. It says nothing true about your worth.", "Many women have been exactly where you are, and many have come through it. What feels heaviest right now?"] },
+    { id: 'anxiety', rx: /anxious|anxiety|panic|can'?t breathe|heart (is )?racing|overwhelm|so scared|terrified|afraid/i,
+      msgs: ["That sounds really intense, and your body is doing what bodies do when they feel in danger. It will pass. Let's slow it down together.", "Would you like to try a minute of slow breathing, or a grounding exercise using your senses?"], quick: [{ l: 'Breathe with me', act: 'breathe' }, { l: '5-4-3-2-1 grounding', act: 'ground' }] },
+    { id: 'lonely', rx: /lonely|all alone|no one (cares|understands|to talk)|nobody (cares|understands)|isolated/i,
+      msgs: ["Feeling alone hurts, and I'm glad you reached out instead of sitting with it. I'm here.", "Is there one person you trust, even someone you haven't spoken to in a while? I can help you find the words to message them today."], quick: [{ l: 'Help me write that message', v: '__draftmsg__' }, { l: 'Not yet', v: '__keep__' }] },
+    { id: 'sleep', rx: /can'?t sleep|insomnia|nightmare|sleepless/i,
+      msgs: ["Nights can be the hardest when the mind won't switch off. Try this: breathe in for 4, out for 6, a few times, and let each thought pass like a cloud without chasing it.", "If sleeplessness keeps going for days, a counsellor on Tele-MANAS (14416) can help with that too."], quick: [{ l: 'Breathe with me', act: 'breathe' }] },
+    { id: 'anger', rx: /\b(furious|so angry|rage|hate (him|them|everyone))\b/i,
+      msgs: ["Anger makes sense here. Something unfair was done to you. You can be angry and still be safe, and you can let it move through you without acting on it tonight.", "Would it help to write down everything you'd say to them, privately, without sending it? Or shall we plan the next practical step?"] },
+    { id: 'thanks', rx: /^(thanks|thank you|thankyou|shukriya|dhanyavaad)\b/i,
+      msgs: ["I'm glad you're here. I'm not going anywhere. Remember, the helplines are free and always on whenever you want a human voice."] },
+    { id: 'greet', rx: /^(hi+|hello|hey|namaste|hlo|hii+)\b/i,
+      msgs: ["Hi, I'm Sahara. I'm here to listen, without judgment. What you say here isn't saved unless you choose to.", "How are you really feeling today?"], quick: [{ l: "I'm anxious", v: "I'm feeling anxious" }, { l: "I'm being harassed online", v: "I'm being harassed online" }, { l: 'I just need to talk', v: '__keep__' }] },
+  ];
+  const FALLBACK = [
+    "I'm listening. Tell me a little more about what has been happening?",
+    "Thank you for sharing that. What feels hardest about it right now?",
+    "That sounds like a lot to carry. What do you need most at this moment: to vent, to calm down, or to work out a next step?",
+  ];
+
+  function reply(raw) {
+    state.turn++;
+    const tok = /^__(\w+)__$/.exec(raw || '');
+    const text = tok ? '' : String(raw || '').trim();
+
+    if (tok) {
+      const k = tok[1];
+      if (k === 'keep') return { level: 0, msgs: ["Of course. I'm here. What has been weighing on you most?"], quick: [] };
+      if (k === 'draftmsg') return { level: 0, msgs: ["Here's something you can send as it is, or change:\n\n“Hey, I've been having a rough time and I don't want to be alone with it. Can you talk, or just stay on a call with me for a bit?”", "Short and honest is enough. People usually want to help and just don't know it's needed."], quick: [] };
+      if (state.awaiting === 'ideation') {
+        state.awaiting = null;
+        if (k === 'yes' || k === 'unsure') return safetyCheck();
+        return { level: 1, msgs: ["Thank you for telling me honestly. Being this worn out matters too.", "If that ever changes, even for a moment, tell me and we'll get you support right away. For now, what has been weighing on you most?"], quick: [] };
+      }
+      if (['safe', 'unsure', 'danger'].includes(k)) {
+        state.lastSafety = { safe: 'said she is safe right now', unsure: 'not sure she will stay safe', danger: 'said she is in danger right now' }[k];
+        if (k === 'safe') return afterSafe();
+        state.level = k === 'danger' ? 3 : 2;
+        return { level: state.level, act: 'esc', msgs: ["Thank you for being honest. I'm going to help you reach people right now. You don't have to do any of it alone."], quick: [] };
+      }
+    }
+
+    const risk = Risk.assess(text);
+    if (state.awaiting === 'safety' && !risk.high) {
+      if (/danger|not safe|unsafe|about to|going to|have (them|it|the)|can'?t stay safe|i will/i.test(text)) return reply('__danger__');
+      if (/\b(safe|ok|okay|fine|alright)\b/i.test(text)) return reply('__safe__');
+      return { level: 2, msgs: ["I want to be sure I understand. Are you safe right now?"], quick: Q_SAFE };
+    }
+    if (risk.level === 3) return imminent();
+    if (risk.level === 2) return safetyCheck();
+    if (risk.level === 1) { state.awaiting = 'ideation'; state.level = Math.max(state.level, 1); return { level: 1, msgs: ["That sounds exhausting. Carrying this much for this long would wear anyone down.", "I want to ask you something directly, because I care: are you having thoughts of ending your life?"], quick: [{ l: 'Yes', v: '__yes__' }, { l: "No, I'm just exhausted", v: '__no__' }, { l: 'Not sure', v: '__unsure__' }] }; }
+
+    const it = INTENTS.find(i => i.rx.test(text));
+    if (it) { if (it.setAwait) state.awaiting = it.setAwait; return { level: 0, intent: it.id, msgs: it.msgs, quick: it.quick || [] }; }
+    return { level: 0, msgs: [pick(FALLBACK, state.turn)], quick: [{ l: 'Help me calm down', act: 'breathe' }, { l: 'I need practical steps', act: 'sos' }, { l: 'I just want to talk', v: '__keep__' }] };
+  }
+  const reset = () => { state.awaiting = null; state.turn = 0; state.level = 0; state.lastSafety = ''; transcript.length = 0; };
+  return { reply, state, transcript, reset };
+})();
+
+/* ---------------------------------------------------------- safety net */
+const Net = {
+  def: () => ({ name: '', phone: '', circle: [], consent: { alertCircle: false, share112: false, share: 'summary' }, plan: {} }),
+  async load() { try { if (Store.isOpen()) return Object.assign(Net.def(), await Store.get('kv', 'net', Net.def())); } catch {} return Net.def(); },
+  async save(n) { await Store.put('kv', 'net', n); },
+};
+const Geo = {
+  get: () => new Promise(res => { if (!navigator.geolocation) return res(null); navigator.geolocation.getCurrentPosition(p => res({ lat: +p.coords.latitude.toFixed(6), lon: +p.coords.longitude.toFixed(6), accuracy_m: Math.round(p.coords.accuracy) }), () => res(null), { enableHighAccuracy: true, timeout: 8000, maximumAge: 60000 }); }),
+  link: l => l ? `https://maps.google.com/?q=${l.lat},${l.lon}` : '(location unavailable)',
+};
+
+/* ---------------------------------------------------------- escalation */
+const Escalation = (() => {
+  let timers = [], S = null, opts = null, net = null, plan = null;
+  const clear = () => { timers.forEach(clearInterval); timers = []; };
+  const now = () => new Date().toLocaleTimeString('en-IN');
+  const addLog = (t, k = '') => { S.log.push({ t, k, at: now() }); };
+  const digits = p => String(p || '').replace(/[^\d+]/g, '');
+
+  async function buildPayload(kind) {
+    const loc = await Geo.get(), share = net.consent.share || 'summary';
+    const p = { kind, time: new Date().toISOString(), person: { name: net.name || 'Not provided', phone: net.phone || 'Not provided' }, location: loc ? { ...loc, map: Geo.link(loc) } : 'unavailable',
+      risk: 'Supportive companion flagged a HIGH risk of self-harm. The person may be in immediate danger.' };
+    if (share === 'summary') p.summary = `She expressed thoughts of ending her life during a chat (risk level ${Companion.state.level} of 3). When asked if she was safe, she ${Companion.state.lastSafety || 'did not answer'}.`;
+    if (share === 'full') p.transcript = Companion.transcript.slice(-40).map(m => ({ from: m.role, text: m.text, at: m.at }));
+    return p;
+  }
+  const circleText = (p, c) => `Kavach alert for ${c.name}: ${net.name || 'Your loved one'} told a support companion that she may be in danger and may hurt herself. Please call her right now${net.phone ? ' on ' + net.phone : ''}. Last known location: ${typeof p.location === 'object' ? p.location.map : 'not available'}. If you cannot reach her, call 112. She chose to share this with you.`;
+
+  async function relay(kind, payload) {
+    try { const r = await fetch(CONFIG.alertEndpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ kind, payload }) }); return r.ok; } catch { return false; }
+  }
+
+  async function doCircle() {
+    S.phase = 'circle'; addLog('Preparing the alert for your trusted circle…'); paint();
+    const p = await buildPayload('circle');
+    if (CONFIG.alertEndpoint) { const ok = await relay('circle', { contacts: net.circle, messages: net.circle.map(c => ({ to: c.phone, text: circleText(p, c) })), ...p }); addLog(ok ? `Alert relayed to ${net.circle.map(c => c.name).join(', ')} via your alert service.` : 'The alert service could not be reached. Use the buttons below to message them now.', ok ? 'ok' : 'sim'); }
+    else if (CONFIG.demo) addLog(`SIMULATION: an SMS and WhatsApp message would now be sent to ${net.circle.map(c => c.name).join(', ')}. Nothing was actually sent.`, 'sim');
+    else addLog('Tap the buttons below to send the prepared message to each person. Your browser cannot send messages silently.', 'sim');
+    S.circlePayload = p; paint();
+  }
+
+  async function do112() {
+    S.phase = '112'; addLog('Preparing the emergency package for 112…'); paint();
+    const p = await buildPayload('112'); S.pkg = p;
+    if (CONFIG.alertEndpoint) { const ok = await relay('112', p); addLog(ok ? 'Emergency package sent through your alert service.' : 'Could not reach the alert service. Please call 112 now.', ok ? 'ok' : 'sim'); }
+    else if (CONFIG.demo) addLog('SIMULATION: this is the package that would be handed to emergency services. Nothing was actually sent or dialed.', 'sim');
+    else { addLog('Opening your phone dialer for 112. The details below are ready to read out or copy.', 'ok'); setTimeout(() => { location.href = 'tel:112'; }, 700); }
+    paint();
+  }
+
+  async function next() {
+    if (S.autoCircle) {
+      await doCircle();
+      if (S.auto112) { S.phase = 'wait'; S.n = S.ackWait; addLog(`Waiting up to ${S.ackWait}s for someone in your circle to respond…`); startWait(); }
+      else S.phase = 'done';
+    } else if (S.auto112) { await do112(); S.phase = 'done'; }
+    else S.phase = 'done';
+    paint();
+  }
+  function startWait() { clear(); timers.push(setInterval(async () => { S.n--; if (S.n <= 0) { clear(); addLog('No response in time. Escalating.'); await do112(); S.phase = 'done'; } paint(); }, 1000)); }
+  function startCount() { clear(); timers.push(setInterval(() => { S.n--; if (S.n <= 0) { clear(); next(); } paint(); }, 1000)); }
+
+  function ack(who = 'Someone in your circle') { if (!S) return toast('Open an escalation first', 'warn'); clear(); S.acked = true; S.phase = 'done'; addLog(`${who} replied and is on the way / calling you. Escalation to 112 cancelled.`, 'ok'); paint(); }
+  function close() { clear(); S = null; $('#overlay').innerHTML = ''; document.body.style.overflow = ''; }
+
+  function contactBtns(p) {
+    return net.circle.map(c => {
+      const msg = encodeURIComponent(circleText(p || { location: 'not available' }, c)), ph = digits(c.phone);
+      return `<div class="hl"><div><b style="font-size:1.1rem">${esc(c.name)}</b><span>${esc(c.rel || 'Trusted contact')} · ${esc(c.phone)}</span></div><div class="row">
+        <a class="btn sm safe" href="tel:${ph}">${icon('phone')} Call</a><a class="btn sm" href="sms:${ph}?body=${msg}">SMS</a><a class="btn sm" href="https://wa.me/${ph.replace('+', '')}?text=${msg}" target="_blank" rel="noopener">WhatsApp</a></div></div>`;
+    }).join('');
+  }
+
+  function paint() {
+    if (!S) return;
+    const names = net.circle.map(c => c.name).join(', ');
+    let phase = '';
+    if (S.phase === 'count') {
+      const what = S.autoCircle ? `Alerting <b>${esc(names)}</b> in ${S.n} second${S.n === 1 ? '' : 's'}${S.auto112 ? '. If no one responds after that, emergency services (112) are contacted' : ''}.` : `Sharing your location and phone number with emergency services (<b>112</b>) in ${S.n} second${S.n === 1 ? '' : 's'}.`;
+      phase = `<div class="card center"><div class="big-count" style="color:var(--coral)">${S.n}</div><p style="margin:8px 0 14px">${what}<br><span class="muted small">You set this up because you wanted help to come even if you couldn't ask.</span></p>
+        <button class="btn lg block" id="esc-cancel">I'm okay: cancel</button></div>`;
+    } else if (S.phase === 'wait') {
+      phase = `<div class="card center"><div class="big-count" style="color:var(--coral)">${S.n}</div><p style="margin:8px 0">seconds for someone in your circle to respond before 112 is contacted.</p></div>`;
+    } else if (!S.auto) {
+      phase = `<div class="card warn"><b>Nothing is sent automatically.</b> You have not turned on automatic alerts, so you decide who to reach. You can set this up any time under <i>Sahara → My safety net</i>.</div>`;
+    }
+    const pkg = S.pkg ? `<div class="card"><div class="card-title">${icon('pin')} Emergency package for 112</div>${CONFIG.demo && !CONFIG.alertEndpoint ? '<div class="simbanner" style="margin-bottom:10px">SIMULATION: nothing was sent</div>' : ''}<pre class="code">${esc(JSON.stringify(S.pkg, null, 2))}</pre><div class="row" style="margin-top:10px"><button class="btn sm" id="esc-copy">${icon('copy')} Copy details</button><a class="btn sm danger" href="tel:112">${icon('phone')} Call 112</a></div></div>` : '';
+    $('#overlay').innerHTML = `<div class="esc"><div class="esc-in">
+      <div class="spread"><div class="eyebrow" style="color:#FFD08A">Sahara · support now</div><button class="btn sm ghost" id="esc-close" style="color:#fff;border-color:rgba(255,255,255,.4)">Back to chat</button></div>
+      <h1>You are not alone. Let's get people to you.</h1>
+      ${CONFIG.demo ? `<div class="simbanner">SIMULATION MODE: no SMS or message is actually sent and nothing is auto-dialed. Buttons that begin a phone call will dial for real.</div>` : ''}
+      ${phase}
+      <div class="grid g2"><a class="btn danger lg" href="tel:112">${icon('phone')} Call 112 · Emergency</a><a class="btn safe lg" href="tel:14416">${icon('phone')} Tele-MANAS 14416</a></div>
+      ${net.circle.length ? `<div class="card"><div class="card-title">${icon('users')} Your trusted circle</div><div class="stack">${contactBtns(S.circlePayload)}</div>
+        ${!S.autoCircle || S.phase === 'done' ? `<button class="btn block" id="esc-circle" style="margin-top:12px">${icon('send')} Prepare alert for my circle</button>` : ''}</div>` : `<div class="card"><b>You haven't added trusted people yet.</b><p class="small muted">You can add them in Sahara → My safety net. For now, 112 and Tele-MANAS are one tap away.</p></div>`}
+      ${S.log.length ? `<div class="card"><div class="card-title">What is happening</div><div class="log">${S.log.map(l => `<div class="${l.k}"><b>${l.at}</b> · ${esc(l.t)}</div>`).join('')}</div></div>` : ''}
+      ${pkg}
+      ${S.phase === 'done' ? `<div class="card"><p style="margin:0 0 10px">Whatever you are feeling is real, and so is the help. Stay with someone, or stay on a call, until you feel steadier.</p><button class="btn block" id="esc-safe">I'm safe now</button></div>` : ''}
+      </div></div>`;
+    document.body.style.overflow = 'hidden';
+    const on = (id, fn) => { const e = $('#' + id); if (e) e.onclick = fn; };
+    on('esc-cancel', () => { clear(); S.phase = 'done'; S.auto = false; addLog('You cancelled the automatic alert. Nothing was sent.', 'ok'); paint(); });
+    on('esc-close', close); on('esc-safe', close);
+    on('esc-copy', () => copy(JSON.stringify(S.pkg, null, 2)));
+    on('esc-circle', async () => { await doCircle(); S.phase = 'done'; paint(); });
+  }
+
+  async function start(o = {}) {
+    clear(); opts = o; net = await Net.load();
+    const c = net.consent || {}, hasCircle = net.circle.length > 0;
+    const forced = o.force === 'circle';
+    const autoCircle = forced ? hasCircle : hasCircle && c.alertCircle;
+    const auto112 = forced ? false : !!c.share112;
+    S = { phase: 'count', n: forced ? 5 : (o.level >= 3 ? 10 : 20), log: [], autoCircle, auto112, auto: autoCircle || auto112, ackWait: CONFIG.demo ? 15 : 120, acked: false };
+    if (!S.auto) S.phase = 'idle';
+    paint();
+    if (S.auto) startCount();
+  }
+  return { start, ack, close, get running() { return !!S; } };
+})();
+
+/* ============================== VIEW ============================== */
+if (typeof Router !== 'undefined') (function () {
+  const HELP = [['112', 'Emergency', 'Police · Fire · Ambulance', true], ['14416', 'Tele-MANAS', 'Free mental-health counselling, 24x7, many languages', false], ['181', 'Women Helpline', 'Support for women in distress', false], ['14490', 'NCW Women Helpline', 'National Commission for Women, 24x7', false]];
+  const telOf = n => 'tel:' + n.replace(/[^\d]/g, '');
+
+  Router.register('sahara', async root => {
+    const net = await Net.load(), hasLock = !Store.isOpen();
+    root.innerHTML = `<div class="page">
+      <div class="page-head"><div class="eyebrow">${icon('heart')} Sahara</div><h1>${t('sahara_title')}</h1><p class="lead">${t('sahara_sub')}</p></div>
+      <div class="crisis-bar">${icon('alert')} In danger or thinking of ending your life right now? <a class="btn sm danger" href="tel:112">${icon('phone')} Call 112</a> <a class="btn sm" href="tel:14416">${icon('phone')} Tele-MANAS 14416</a> <button class="btn sm" id="sos-now">Get help now</button></div>
+      <div class="split">
+        <div class="card chat"><div class="chat-head"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAgMTIwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IlNhaGFyYSBjb21wYW5pb24gYXZhdGFyIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYSIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNGRkU2Q0MiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjRjdCOTlBIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGNsaXBQYXRoIGlkPSJjIj48Y2lyY2xlIGN4PSI2MCIgY3k9IjYwIiByPSI2MCIvPjwvY2xpcFBhdGg+CiAgPC9kZWZzPgogIDxnIGNsaXAtcGF0aD0idXJsKCNjKSI+CiAgICA8cmVjdCB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgZmlsbD0idXJsKCNhKSIvPgogICAgPHBhdGggZD0iTTEwIDEzMGMwLTM0IDIyLTUyIDUwLTUyczUwIDE4IDUwIDUyeiIgZmlsbD0iIzFGN0E2RCIvPgogICAgPHBhdGggZD0iTTUwIDgyaDIwdi0xMEg1MHoiIGZpbGw9IiNDOThCNkIiLz4KICAgIDxwYXRoIGQ9Ik0zMiA1OGMtMi0yNiAxMi0zOCAyOC0zOHMzMCAxMiAyOCAzOGMwIDEyIDIgMjYgNiAzNi04IDItMTQtMi0xNi04IDItMTgtMi0zNC0xOC0zNFM0NCA3MCA0NCA4NmMtMiA2LTggMTAtMTYgOCA0LTEwIDYtMjQgNC0zNnoiIGZpbGw9IiMyQjFCMkUiLz4KICAgIDxjaXJjbGUgY3g9IjYwIiBjeT0iNTgiIHI9IjIyIiBmaWxsPSIjQzk4QjZCIi8+CiAgICA8cGF0aCBkPSJNMzggNTRjMi0xNiAxMi0yNCAyMi0yNHMyMCA4IDIyIDI0Yy02LTgtMTItMTItMjItMTJzLTE2IDQtMjIgMTJ6IiBmaWxsPSIjMkIxQjJFIi8+CiAgICA8Y2lyY2xlIGN4PSI2MCIgY3k9IjQwIiByPSIyLjUiIGZpbGw9IiNGMkEzM0EiLz4KICAgIDxwYXRoIGQ9Ik01MiA2NmMzIDMgMTMgMyAxNiAwIiBmaWxsPSJub25lIiBzdHJva2U9IiM4RTJBNUIiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgICA8cGF0aCBkPSJNMTAgMTMwYzgtMjYgMjAtNDAgNDItNDZsLTYgNDZ6IiBmaWxsPSIjRjJBMzNBIiBvcGFjaXR5PSIuODUiLz4KICA8L2c+Cjwvc3ZnPgo=" alt=""><div><b>Sahara</b><div class="small muted">Supportive companion · not a therapist, not a person</div></div></div>
+          <div class="chat-log" id="log" aria-live="polite"></div>
+          <form class="chat-in" id="cf"><input type="text" id="ci" placeholder="Write here…" autocomplete="off" aria-label="Message"><button class="btn primary" type="submit" aria-label="Send">${icon('send')}</button></form></div>
+        <div class="stack">
+          <div class="card"><div class="card-title"><span class="ic coral">${icon('phone')}</span>Talk to a real person</div><div class="stack">${HELP.map(([n, name, d, red]) => `<div class="hl ${red ? 'red' : ''}"><div><b>${n}</b><span><b>${name}</b> · ${d}</span></div><a class="btn sm ${red ? 'danger' : 'safe'}" href="${telOf(n)}">${icon('phone')} ${t('call')}</a></div>`).join('')}</div><p class="hint" style="margin-top:10px">${t('helpline_note')}. Last checked 8 Nov 2026 against PIB and NCW pages. Please confirm locally.</p></div>
+          <div class="card"><div class="card-title"><span class="ic safe">${icon('heart')}</span>Calm down tools</div><div class="row"><button class="btn" id="b-breathe">Breathing</button><button class="btn" id="b-ground">5-4-3-2-1 grounding</button><button class="btn" id="b-plan">My safety plan</button></div></div>
+          <div class="card ${net.circle.length && net.consent.alertCircle ? 'safe' : 'tint'}"><div class="card-title"><span class="ic">${icon('users')}</span>My safety net</div>
+            ${hasLock ? '<p class="small">Unlock Kavach to use your trusted circle. Emergency numbers above always work.</p>' : `
+            <div class="stack">${net.circle.length ? net.circle.map(c => `<div class="row spread"><span><b>${esc(c.name)}</b> <span class="hint">${esc(c.rel || '')} · ${esc(c.phone)}</span></span><button class="btn sm ghost" data-rm="${c.id}" aria-label="Remove">${icon('trash')}</button></div>`).join('') : '<p class="small muted" style="margin:0">Add people who should know if you are in danger.</p>'}
+            <button class="btn sm" id="add-c">${icon('plus')} Add a trusted person</button></div>
+            <hr style="border:0;border-top:1px solid var(--line);margin:14px 0"><div class="lbl" style="margin-bottom:8px">My choices (change any time)</div>
+            <label class="chk"><input type="checkbox" id="c-circle" ${net.consent.alertCircle ? 'checked' : ''}><span>If I'm in danger, <b>alert my circle</b> with my location (I can cancel during a countdown).</span></label>
+            <label class="chk" style="margin-top:8px"><input type="checkbox" id="c-112" ${net.consent.share112 ? 'checked' : ''}><span>If no one responds, <b>share my location and phone number with 112</b>.</span></label>
+            <div class="field" style="margin-top:10px"><label for="c-share">What may be shared with 112 about our chat?</label><select id="c-share"><option value="none" ${net.consent.share === 'none' ? 'selected' : ''}>Nothing from the chat</option><option value="summary" ${net.consent.share === 'summary' ? 'selected' : ''}>A short risk summary (recommended)</option><option value="full" ${net.consent.share === 'full' ? 'selected' : ''}>The full conversation</option></select></div>
+            <div class="grid g2"><div class="field"><label for="c-name">My name</label><input type="text" id="c-name" value="${esc(net.name)}"></div><div class="field"><label for="c-phone">My phone</label><input type="tel" id="c-phone" value="${esc(net.phone)}"></div></div>
+            <p class="hint">Chats stay on this device and are never saved unless you choose. Nothing is shared automatically unless you turn it on here.</p>`}</div>
+        </div></div></div>`;
+
+    const log = $('#log');
+    const bubble = (role, text) => { const d = document.createElement('div'); d.className = 'msg ' + role; d.textContent = text; log.appendChild(d); log.scrollTop = log.scrollHeight; Companion.transcript.push({ role: role === 'bot' ? 'sahara' : 'user', text, at: new Date().toISOString() }); };
+    const quickRow = qs => { if (!qs || !qs.length) return; const r = document.createElement('div'); r.className = 'quick-r'; qs.forEach(q => { const b = document.createElement('button'); b.type = 'button'; b.textContent = q.l; b.onclick = () => { r.remove(); if (q.act) return act(q.act); bubble('user', q.l); respond(q.v || q.l); }; r.appendChild(b); }); log.appendChild(r); log.scrollTop = log.scrollHeight; };
+    const typing = () => { const d = document.createElement('div'); d.className = 'typing'; d.innerHTML = '<i></i><i></i><i></i>'; log.appendChild(d); log.scrollTop = log.scrollHeight; return d; };
+    const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+    async function act(a, level) {
+      if (a === 'esc') return Escalation.start({ level: level || 2 });
+      if (a === 'call14416') { location.href = 'tel:14416'; return; }
+      if (a === 'circle') return net.circle.length ? Escalation.start({ force: 'circle', level: 2 }) : (toast('Add a trusted person first'), addPerson());
+      if (a === 'plan') return openPlan();
+      if (a === 'breathe') return openBreath();
+      if (a === 'ground') return openGround();
+      if (a === 'sos') { location.hash = '#/sos'; }
+    }
+
+    async function respond(text) {
+      let res = Companion.reply(text);
+      if (CONFIG.llmEndpoint && res.level === 0 && !Companion.state.awaiting && !/^__/.test(text) && !res.intent) {
+        try { const r = await fetch(CONFIG.llmEndpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ messages: Companion.transcript.slice(-12), risk: 0 }) }); const j = await r.json(); if (j.reply) res = { ...res, msgs: [j.reply] }; } catch {}
+      }
+      for (const m of res.msgs) { const ty = typing(); await sleep(500 + Math.min(900, m.length * 9)); ty.remove(); bubble('bot', m); }
+      quickRow(res.quick);
+      if (res.act) act(res.act, res.level);
+    }
+
+    $('#cf').onsubmit = e => { e.preventDefault(); const v = $('#ci').value.trim(); if (!v) return; $('#ci').value = ''; $$('.quick-r', log).forEach(x => x.remove()); bubble('user', v); respond(v); };
+    $('#sos-now').onclick = () => Escalation.start({ level: 3 });
+    $('#b-breathe').onclick = openBreath; $('#b-ground').onclick = openGround; $('#b-plan').onclick = openPlan;
+    if (!hasLock) {
+      $('#add-c').onclick = addPerson;
+      $$('[data-rm]', root).forEach(b => b.onclick = async () => { net.circle = net.circle.filter(c => c.id !== b.dataset.rm); await Net.save(net); Router.render(); });
+      const savePrefs = async () => { net.consent = { alertCircle: $('#c-circle').checked, share112: $('#c-112').checked, share: $('#c-share').value }; net.name = $('#c-name').value; net.phone = $('#c-phone').value; await Net.save(net); };
+      ['c-circle', 'c-112', 'c-share'].forEach(id => $('#' + id).onchange = async () => { await savePrefs(); toast('Saved'); });
+      ['c-name', 'c-phone'].forEach(id => $('#' + id).onchange = savePrefs);
+    }
+    if (!log.children.length) { bubble('bot', "Hi, I'm Sahara. I'm a supportive companion: not a therapist, and not a person. I can listen, help you through a hard moment, and connect you to real people any time."); bubble('bot', 'Nothing you write here is saved unless you choose. How are you feeling?'); quickRow([{ l: "I'm anxious", v: "I'm feeling anxious" }, { l: "I'm being blackmailed online", v: "Someone is blackmailing me with my photos" }, { l: 'I just need to talk', v: '__keep__' }]); }
+  });
+
+  function addPerson() {
+    modal(`<div class="spread"><h2>Add a trusted person</h2><button class="btn sm ghost" data-close>${icon('x')}</button></div><p class="muted">Choose someone who would drop everything for you. They will only be contacted if you turn on alerts, or tap “Let my circle know”.</p>
+      <div class="field"><label for="pn">Name</label><input type="text" id="pn"></div><div class="field"><label for="pr">Relationship</label><input type="text" id="pr" placeholder="Mother, friend, sister…"></div><div class="field"><label for="pp">Phone (with country code)</label><input type="tel" id="pp" placeholder="+91…"></div>
+      <button class="btn primary block" id="ps">Save</button>`);
+    $('#ps').onclick = async () => {
+      const name = $('#pn').value.trim(), phone = $('#pp').value.trim(); if (!name || !phone) return toast('Name and phone are required', 'warn');
+      const net = await Net.load(); net.circle.push({ id: uid(), name, rel: $('#pr').value.trim(), phone }); await Net.save(net); closeModal(); Router.render();
+    };
+  }
+
+  async function openPlan() {
+    const net = await Net.load(), p = net.plan || {};
+    const F = [['warn', 'My warning signs (thoughts, feelings, situations)'], ['cope', 'Things I can do on my own to feel a little steadier'], ['people', 'People and places that help me feel okay'], ['ask', 'People I can ask for help'], ['safe', 'How I can make my space safer'], ['reasons', 'What matters to me / my reasons to keep going']];
+    modal(`<div class="spread"><h2>My safety plan</h2><button class="btn sm ghost" data-close>${icon('x')}</button></div><p class="muted">Written while you are calm, for the moments you are not. Only you can see this.</p>
+      ${F.map(([k, l]) => `<div class="field"><label for="sp-${k}">${l}</label><textarea id="sp-${k}" style="min-height:70px">${esc(p[k] || '')}</textarea></div>`).join('')}
+      <div class="card danger" style="margin-bottom:12px"><b>If I can't keep myself safe:</b> I call <b>112</b> or <b>Tele-MANAS 14416</b>, or go to the nearest hospital.</div>
+      <button class="btn primary block" id="sp-save">Save my plan</button>`);
+    $('#sp-save').onclick = async () => { if (!Store.isOpen()) return toast('Unlock Kavach to save', 'warn'); net.plan = Object.fromEntries(F.map(([k]) => [k, $('#sp-' + k).value])); await Net.save(net); closeModal(); toast('Safety plan saved'); };
+  }
+
+  function openBreath() {
+    modal(`<div class="spread"><h2>Breathe with me</h2><button class="btn sm ghost" data-close>${icon('x')}</button></div><p class="muted">Follow the circle. In through your nose, out slowly through your mouth. There is nothing to get right.</p>
+      <div class="breath"><div class="orb" id="orb">Get ready</div></div><p class="center hint">A minute or two is enough.</p>`);
+    const orb = $('#orb'); let alive = true; const steps = [['Breathe in…', 4000, true], ['Hold…', 2000, true], ['Breathe out slowly…', 6000, false]];
+    (async () => { await new Promise(r => setTimeout(r, 900)); while (alive && $('#orb')) for (const [txt, ms, big] of steps) { if (!$('#orb')) { alive = false; break; } orb.textContent = txt; orb.classList.toggle('in', big); await new Promise(r => setTimeout(r, ms)); } })();
+  }
+
+  function openGround() {
+    modal(`<div class="spread"><h2>5-4-3-2-1 grounding</h2><button class="btn sm ghost" data-close>${icon('x')}</button></div><p class="muted">This brings your mind back to the present. Say each one out loud or in your head, slowly.</p>
+      <div class="steps"><div class="step"><div><h3>5 things you can see</h3><p>Look around and name them.</p></div></div><div class="step"><div><h3>4 things you can touch</h3><p>Your clothes, the chair, the floor under your feet.</p></div></div><div class="step"><div><h3>3 things you can hear</h3><p>Near and far.</p></div></div><div class="step"><div><h3>2 things you can smell</h3><p>Or two smells you like.</p></div></div><div class="step"><div><h3>1 thing you can taste</h3><p>Or one slow, deep breath.</p></div></div></div>`);
+  }
+})();
+
+if (typeof module !== 'undefined') module.exports = { Risk, Companion };
+
+</script>
+<script>
+'use strict';
+/* App shell: onboarding / lock, navigation, quick-exit, disguise mode, and the home / emergency / help / about views. */
+
+const NAV = [
+  ['home', 'nav_home', 'home'], ['sos', 'nav_sos', 'alert'], ['shield', 'nav_shield', 'shield'], ['vault', 'nav_vault', 'lock'],
+  ['report', 'nav_report', 'file'], ['sahara', 'nav_sahara', 'heart'], ['help', 'nav_help', 'phone'], ['about', 'nav_about', 'info'],
+];
+const TAB = [['home', 'nav_home', 'home'], ['shield', 'nav_shield', 'shield'], ['vault', 'nav_vault', 'lock'], ['report', 'nav_report', 'file'], ['sahara', 'nav_sahara', 'heart'], ['sos', 'nav_sos', 'alert']];
+
+const App = {
+  disguised: (() => { try { return localStorage.getItem('kv_disguise') === '1'; } catch { return false; } })(),
+
+  refresh() { App.drawChrome(); Router.render(); },
+
+  drawChrome() {
+    const d = App.disguised;
+    document.title = d ? 'Daily Notes' : 'Kavach — Her image. Her evidence. Her call.';
+    document.body.classList.toggle('disguise', d);
+    $('#side').innerHTML = `<div class="brand"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjRTQ1NzJFIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzhFMkE1QiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPHBhdGggZD0iTTMyIDRsMjIgOHYxNmMwIDE0LjUtOS4yIDI2LjQtMjIgMzJDMTkuMiA1NC40IDEwIDQyLjUgMTAgMjhWMTJ6IiBmaWxsPSJ1cmwoI2cpIi8+CiAgPHBhdGggZD0iTTMyIDE3YzMuMiA0LjIgNC44IDcuOSA0LjggMTEuNCAwIDMuOC0yIDYuOC00LjggOC40LTIuOC0xLjYtNC44LTQuNi00LjgtOC40IDAtMy41IDEuNi03LjIgNC44LTExLjR6IiBmaWxsPSIjRkZFOUM3Ii8+CiAgPHBhdGggZD0iTTIxLjUgMjYuNWMzLjguNCA2LjUgMi40IDggNS40LjggMS43LjggMy40LjMgNC45LTQtLjEtNy44LTQtOC4zLTEwLjN6TTQyLjUgMjYuNWMtLjUgNi4zLTQuMyAxMC4yLTguMyAxMC4zLS41LTEuNS0uNS0zLjIuMy00LjkgMS41LTMgNC4yLTUgOC01LjR6IiBmaWxsPSIjRkZEMDhBIi8+CiAgPHBhdGggZD0iTTI1IDQyYzIgMS44IDQuNCAyLjggNyAyLjhzNS0xIDctMi44IiBmaWxsPSJub25lIiBzdHJva2U9IiNGRkU5QzciIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+Cjwvc3ZnPgo=" alt=""><div><b>${d ? 'Daily Notes' : 'Kavach'}</b><small>${d ? 'Your private notebook' : t('brand_sub')}</small></div></div>
+      <nav class="nav">${NAV.map(([r, k, ic]) => `<a href="#/${r}" data-r="${r}" class="${r === 'sos' ? 'sos' : ''}">${icon(ic)}<span>${t(k)}</span></a>`).join('')}</nav>
+      <div class="side-foot"><div class="lbl small" style="color:#CDB5D6">${t('lang')}</div>
+        <div class="seg"><button data-l="en" class="${LANG === 'en' ? 'on' : ''}">English</button><button data-l="hi" class="${LANG === 'hi' ? 'on' : ''}">हिन्दी</button></div>
+        <button class="side-btn" id="dis">${icon('eye')} ${d ? 'Show Kavach' : t('disguise')}</button>
+        <button class="side-btn" id="lock">${icon('lock')} Lock</button></div>`;
+    $('#tabbar').innerHTML = TAB.map(([r, k, ic]) => `<a href="#/${r}" data-r="${r}" class="${r === 'sos' ? 'sos' : ''}">${icon(ic)}<span>${t(k).split(' ')[0]}</span></a>`).join('');
+    $('#qexit').innerHTML = `${icon('exit')}<span>${t('quick_exit')}</span>`;
+    $$('[data-l]').forEach(b => b.onclick = () => setLang(b.dataset.l));
+    $('#dis').onclick = () => { App.disguised = !App.disguised; try { localStorage.setItem('kv_disguise', App.disguised ? '1' : '0'); } catch {} toast(App.disguised ? t('disguise_on') : 'Kavach is visible again'); App.drawChrome(); };
+    $('#lock').onclick = () => { Store.lock(); location.hash = '#/home'; App.gate(); };
+    App.mark(Router.current);
+  },
+  mark(r) { $$('.nav a, .tabbar a').forEach(a => { const on = a.dataset.r === r; a.classList.toggle('on', on); if (on) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); }); },
+
+  quickExit() {
+    Escalation.close && Escalation.close();
+    $('#view').innerHTML = ''; $('#overlay').innerHTML = ''; $('#modal').innerHTML = '';
+    Store.lock();
+    try { sessionStorage.clear(); } catch {}
+    location.replace('https://www.google.com/search?q=weather+today');
+  },
+
+  async gate() {
+    const mode = await Store.init(); const g = $('#gate');
+    if (mode === 'open') { g.innerHTML = ''; return; }
+    const art = `<div class="gate-art"><div><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NjAgNDQwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IlRocmVlIHdvbWVuIHN0YW5kaW5nIHRvZ2V0aGVyIGJlaGluZCBhIHNoaWVsZCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9InNoIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI0U0NTcyRSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM4RTJBNUIiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI0ZGRTZDQyIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNGOUM5QjAiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxwYXRoIGQ9Ik00OCAyMzBDMjQgMTIwIDEzMCAzMCAyODAgNDBzMjUwIDgwIDIzMiAyMDAtOTggMTcwLTI0MCAxNjhTNzIgMzMwIDQ4IDIzMHoiIGZpbGw9InVybCgjYmcpIi8+CiAgPGNpcmNsZSBjeD0iNDcwIiBjeT0iODQiIHI9IjIyIiBmaWxsPSIjRjJBMzNBIiBvcGFjaXR5PSIuOSIvPgogIDxjaXJjbGUgY3g9Ijg2IiBjeT0iMzMwIiByPSIxMiIgZmlsbD0iIzhFMkE1QiIgb3BhY2l0eT0iLjI1Ii8+CiAgPGNpcmNsZSBjeD0iNTAwIiBjeT0iMzAwIiByPSI4IiBmaWxsPSIjMUY3QTZEIiBvcGFjaXR5PSIuNSIvPgoKICA8IS0tIGxlZnQgd29tYW46IGhhaXIgYnVuLCB0ZWFsIGt1cnRhIC0tPgogIDxnPgogICAgPHBhdGggZD0iTTcwIDQyMGMwLTYyIDM0LTEwMiA5Mi0xMDJzOTIgNDAgOTIgMTAyeiIgZmlsbD0iIzFGN0E2RCIvPgogICAgPHBhdGggZD0iTTEzMiAzMThoNjB2LTE4aC02MHoiIGZpbGw9IiNCOTdBNTgiLz4KICAgIDxjaXJjbGUgY3g9IjE2MiIgY3k9IjI2MiIgcj0iNDAiIGZpbGw9IiNDOThCNkIiLz4KICAgIDxjaXJjbGUgY3g9IjE2MiIgY3k9IjIwNiIgcj0iMjAiIGZpbGw9IiMyQjFCMkUiLz4KICAgIDxwYXRoIGQ9Ik0xMjIgMjYyYy02LTQ0IDIyLTYyIDQwLTYyczQ2IDE4IDQwIDYyYy00LTIyLTE2LTM4LTQwLTM4cy0zNiAxNi00MCAzOHoiIGZpbGw9IiMyQjFCMkUiLz4KICAgIDxjaXJjbGUgY3g9IjEyNyIgY3k9IjI3NiIgcj0iNCIgZmlsbD0iI0YyQTMzQSIvPjxjaXJjbGUgY3g9IjE5NyIgY3k9IjI3NiIgcj0iNCIgZmlsbD0iI0YyQTMzQSIvPgogICAgPHBhdGggZD0iTTcwIDQyMGMxMC0zNCAyOC01MiA1OC02MGwtOCA2MHoiIGZpbGw9IiNGMkEzM0EiIG9wYWNpdHk9Ii44NSIvPgogIDwvZz4KCiAgPCEtLSByaWdodCB3b21hbjogbG9uZyBoYWlyLCBtdXN0YXJkIHRvcCAtLT4KICA8Zz4KICAgIDxwYXRoIGQ9Ik0zMDYgNDIwYzAtNjIgMzQtMTAyIDkyLTEwMnM5MiA0MCA5MiAxMDJ6IiBmaWxsPSIjRjJBMzNBIi8+CiAgICA8cGF0aCBkPSJNMzY4IDMxOGg2MHYtMThoLTYweiIgZmlsbD0iIzhENUEzRSIvPgogICAgPHBhdGggZD0iTTM1MiAyNjJjLTgtNTYgMjItNzYgNDYtNzZzNTQgMjAgNDYgNzZsNiA3OGMtMTQgNi0yNCAyLTMwLTYgNC0zMCAwLTU4LTIyLTU4cy0yNiAyOC0yMiA1OGMtNiA4LTE2IDEyLTMwIDZ6IiBmaWxsPSIjMUUxNDIwIi8+CiAgICA8Y2lyY2xlIGN4PSIzOTgiIGN5PSIyNjIiIHI9IjQwIiBmaWxsPSIjOEQ1QTNFIi8+CiAgICA8cGF0aCBkPSJNMzU4IDI1OGMyLTMwIDIwLTQ0IDQwLTQ0czM4IDE0IDQwIDQ0Yy0xMC0xNC0yMi0yMi00MC0yMnMtMzAgOC00MCAyMnoiIGZpbGw9IiMxRTE0MjAiLz4KICAgIDxjaXJjbGUgY3g9IjM5OCIgY3k9IjIyNiIgcj0iMy41IiBmaWxsPSIjRTQ1NzJFIi8+CiAgPC9nPgoKICA8IS0tIGNlbnRyZSB3b21hbjogYm9iLCBwbHVtIGt1cnRhICsgZHVwYXR0YSAtLT4KICA8Zz4KICAgIDxwYXRoIGQ9Ik0xODAgNDQwYzAtODIgNDItMTMwIDEwMC0xMzBzMTAwIDQ4IDEwMCAxMzB6IiBmaWxsPSIjOEUyQTVCIi8+CiAgICA8cGF0aCBkPSJNMjQ2IDMxMmg2OHYtMjJoLTY4eiIgZmlsbD0iI0UwQUM4QSIvPgogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMjM2IiByPSI0NiIgZmlsbD0iI0UwQUM4QSIvPgogICAgPHBhdGggZD0iTTIzMiAyNDRjLTgtNjAgMjItODQgNDgtODRzNTYgMjQgNDggODRjMCAxOC02IDM0LTEyIDQ0IDYtMjYgMi02MC0zNi02MHMtNDIgMzQtMzYgNjBjLTYtMTAtMTItMjYtMTItNDR6IiBmaWxsPSIjMkIxQjJFIi8+CiAgICA8cGF0aCBkPSJNMjMyIDI0NGM4LTI2IDI0LTM4IDQ4LTM4czQwIDEyIDQ4IDM4Yy0xNC0xNC0yOC0xOC00OC0xOHMtMzQgNC00OCAxOHoiIGZpbGw9IiMyQjFCMkUiLz4KICAgIDxjaXJjbGUgY3g9IjIzNyIgY3k9IjI2MiIgcj0iNC41IiBmaWxsPSIjRjJBMzNBIi8+PGNpcmNsZSBjeD0iMzIzIiBjeT0iMjYyIiByPSI0LjUiIGZpbGw9IiNGMkEzM0EiLz4KICAgIDxwYXRoIGQ9Ik0xODggNDQwYzQtNTAgMjQtOTIgNzAtMTE2bDggMTRjLTMwIDI0LTQwIDYwLTQyIDEwMnoiIGZpbGw9IiNFNDU3MkUiLz4KICAgIDxjaXJjbGUgY3g9IjI4MCIgY3k9IjIwMCIgcj0iMyIgZmlsbD0iI0U0NTcyRSIvPgogIDwvZz4KCiAgPCEtLSBzaGllbGQgaGVsZCBpbiBmcm9udCAtLT4KICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyMjIgMjYyKSI+CiAgICA8cGF0aCBkPSJNNTggMGw1OCAyMnY0NGMwIDQwLTI0IDcwLTU4IDg2QzI0IDEzNiAwIDEwNiAwIDY2VjIyeiIgZmlsbD0idXJsKCNzaCkiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSI2IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CiAgICA8cGF0aCBkPSJNNTggMzBjOCAxMSAxMiAyMSAxMiAzMCAwIDEwLTUgMTgtMTIgMjItNy00LTEyLTEyLTEyLTIyIDAtOSA0LTE5IDEyLTMweiIgZmlsbD0iI0ZGRTlDNyIvPgogICAgPHBhdGggZD0iTTM0IDU2YzEwIDEgMTcgNiAyMSAxNCAyIDQgMiA5IC44IDEzLTEwLS4yLTIwLTEwLjUtMjEuOC0yN3pNODIgNTZjLTEuOCAxNi41LTExLjggMjYuOC0yMS44IDI3LTEuMi00LTEuMi05IC44LTEzIDQtOCAxMS0xMyAyMS0xNHoiIGZpbGw9IiNGRkQwOEEiLz4KICAgIDxwYXRoIGQ9Ik00MCAxMDRjNSA1IDExIDcgMTggN3MxMy0yIDE4LTciIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0ZGRTlDNyIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8L2c+Cjwvc3ZnPgo=" alt="Three women standing together behind a shield"><div class="tag">${t('tagline')}</div></div></div>`;
+    if (mode === 'new') {
+      g.innerHTML = `<div class="gate">${art}<div class="gate-form"><div class="eyebrow">Welcome</div><h1>Set up your private space.</h1>
+        <p class="lead" style="font-size:1rem">Kavach keeps everything on <b>this device</b>, encrypted. We never see your photos, evidence or messages.</p>
+        <ul class="promise"><li>${icon('check')}No account, no email, no tracking.</li><li>${icon('check')}Your photos are fingerprinted here; they are never uploaded.</li><li>${icon('check')}Evidence is encrypted and tamper-evident.</li></ul>
+        <form id="gf"><div class="field"><label for="gp">Create a passphrase</label><input type="password" id="gp" autocomplete="new-password" minlength="6" placeholder="At least 6 characters"><span class="hint">Choose something only you would know. <b>We cannot recover it</b> if you forget it.</span></div>
+        <button class="btn primary lg block" type="submit">${icon('lock')} Create my vault</button></form>
+        <button class="btn block ghost" id="gskip" style="margin-top:10px">Try the demo without a passphrase</button>
+        <p class="hint" style="margin-top:10px">Demo mode stores data on this device without a passphrase, so anyone using this browser could open it.</p></div></div>`;
+      $('#gf').onsubmit = async e => { e.preventDefault(); const p = $('#gp').value; if (p.length < 6) return toast('Use at least 6 characters', 'warn'); await Store.setupPass(p); g.innerHTML = ''; Router.render(); App.drawChrome(); toast('Your vault is ready'); };
+      $('#gskip').onclick = async () => { await Store.setupDevice(); g.innerHTML = ''; Router.render(); App.drawChrome(); };
+    } else {
+      g.innerHTML = `<div class="gate">${art}<div class="gate-form"><div class="eyebrow">Welcome back</div><h1>Unlock Kavach.</h1>
+        <form id="gf"><div class="field"><label for="gp">Passphrase</label><input type="password" id="gp" autocomplete="current-password" autofocus></div>
+        <button class="btn primary lg block" type="submit">${icon('lock')} Unlock</button></form>
+        <p class="hint" style="margin-top:14px">Forgot it? Your data is encrypted with it and cannot be recovered. You can <button class="btn sm ghost" id="gw">erase everything and start over</button></p>
+        <p style="margin-top:14px"><a class="btn danger" href="tel:112">${icon('phone')} Need help now? Call 112</a> <a class="btn" href="tel:14416">Tele-MANAS 14416</a></p></div></div>`;
+      $('#gf').onsubmit = async e => { e.preventDefault(); if (await Store.unlock($('#gp').value)) { g.innerHTML = ''; Router.render(); App.drawChrome(); } else { toast('That passphrase did not work', 'warn'); $('#gp').select(); } };
+      $('#gw').onclick = async () => { if (confirm('This permanently erases all evidence, photos and settings on this device. Continue?')) { await Store.wipe(); location.reload(); } };
+    }
+  },
+};
+
+/* ------------------------------ views ------------------------------ */
+Router.register('home', async root => {
+  let ev = 0, ph = 0, cs = 0, ok = true;
+  if (Store.isOpen()) { const e = await Vault.list(); ev = e.length; ok = (await Vault.verify(e)).ok; ph = (await Store.all('shield')).length; cs = (await Store.all('cases')).filter(c => !c.resolved).length; }
+  const net = Store.isOpen() ? await Net.load() : null;
+  const setup = [['Add a trusted person', net && net.circle.length > 0, '#/sahara'], ['Protect your first photo', ph > 0, '#/shield'], ['Save a piece of evidence', ev > 0, '#/vault'], ['Write your safety plan', net && Object.values(net.plan || {}).some(Boolean), '#/sahara']];
+  const done = setup.filter(s => s[1]).length;
+  root.innerHTML = `<div class="page">
+    <section class="hero"><div><div class="tag">${t('tagline')}</div><h1>${t('hero_title')}</h1><p>${t('hero_sub')}</p>
+      <div class="row" style="margin-top:22px"><a class="btn coral lg" href="#/sos">${icon('alert')} ${t('cta_sos')}</a><a class="btn lg" href="#/shield">${t('cta_shield')}</a><a class="btn lg ghost" style="color:#fff;border-color:rgba(255,255,255,.5)" href="#/sahara">${t('cta_talk')}</a></div></div>
+      <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NjAgNDQwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IlRocmVlIHdvbWVuIHN0YW5kaW5nIHRvZ2V0aGVyIGJlaGluZCBhIHNoaWVsZCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9InNoIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI0U0NTcyRSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM4RTJBNUIiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI0ZGRTZDQyIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNGOUM5QjAiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxwYXRoIGQ9Ik00OCAyMzBDMjQgMTIwIDEzMCAzMCAyODAgNDBzMjUwIDgwIDIzMiAyMDAtOTggMTcwLTI0MCAxNjhTNzIgMzMwIDQ4IDIzMHoiIGZpbGw9InVybCgjYmcpIi8+CiAgPGNpcmNsZSBjeD0iNDcwIiBjeT0iODQiIHI9IjIyIiBmaWxsPSIjRjJBMzNBIiBvcGFjaXR5PSIuOSIvPgogIDxjaXJjbGUgY3g9Ijg2IiBjeT0iMzMwIiByPSIxMiIgZmlsbD0iIzhFMkE1QiIgb3BhY2l0eT0iLjI1Ii8+CiAgPGNpcmNsZSBjeD0iNTAwIiBjeT0iMzAwIiByPSI4IiBmaWxsPSIjMUY3QTZEIiBvcGFjaXR5PSIuNSIvPgoKICA8IS0tIGxlZnQgd29tYW46IGhhaXIgYnVuLCB0ZWFsIGt1cnRhIC0tPgogIDxnPgogICAgPHBhdGggZD0iTTcwIDQyMGMwLTYyIDM0LTEwMiA5Mi0xMDJzOTIgNDAgOTIgMTAyeiIgZmlsbD0iIzFGN0E2RCIvPgogICAgPHBhdGggZD0iTTEzMiAzMThoNjB2LTE4aC02MHoiIGZpbGw9IiNCOTdBNTgiLz4KICAgIDxjaXJjbGUgY3g9IjE2MiIgY3k9IjI2MiIgcj0iNDAiIGZpbGw9IiNDOThCNkIiLz4KICAgIDxjaXJjbGUgY3g9IjE2MiIgY3k9IjIwNiIgcj0iMjAiIGZpbGw9IiMyQjFCMkUiLz4KICAgIDxwYXRoIGQ9Ik0xMjIgMjYyYy02LTQ0IDIyLTYyIDQwLTYyczQ2IDE4IDQwIDYyYy00LTIyLTE2LTM4LTQwLTM4cy0zNiAxNi00MCAzOHoiIGZpbGw9IiMyQjFCMkUiLz4KICAgIDxjaXJjbGUgY3g9IjEyNyIgY3k9IjI3NiIgcj0iNCIgZmlsbD0iI0YyQTMzQSIvPjxjaXJjbGUgY3g9IjE5NyIgY3k9IjI3NiIgcj0iNCIgZmlsbD0iI0YyQTMzQSIvPgogICAgPHBhdGggZD0iTTcwIDQyMGMxMC0zNCAyOC01MiA1OC02MGwtOCA2MHoiIGZpbGw9IiNGMkEzM0EiIG9wYWNpdHk9Ii44NSIvPgogIDwvZz4KCiAgPCEtLSByaWdodCB3b21hbjogbG9uZyBoYWlyLCBtdXN0YXJkIHRvcCAtLT4KICA8Zz4KICAgIDxwYXRoIGQ9Ik0zMDYgNDIwYzAtNjIgMzQtMTAyIDkyLTEwMnM5MiA0MCA5MiAxMDJ6IiBmaWxsPSIjRjJBMzNBIi8+CiAgICA8cGF0aCBkPSJNMzY4IDMxOGg2MHYtMThoLTYweiIgZmlsbD0iIzhENUEzRSIvPgogICAgPHBhdGggZD0iTTM1MiAyNjJjLTgtNTYgMjItNzYgNDYtNzZzNTQgMjAgNDYgNzZsNiA3OGMtMTQgNi0yNCAyLTMwLTYgNC0zMCAwLTU4LTIyLTU4cy0yNiAyOC0yMiA1OGMtNiA4LTE2IDEyLTMwIDZ6IiBmaWxsPSIjMUUxNDIwIi8+CiAgICA8Y2lyY2xlIGN4PSIzOTgiIGN5PSIyNjIiIHI9IjQwIiBmaWxsPSIjOEQ1QTNFIi8+CiAgICA8cGF0aCBkPSJNMzU4IDI1OGMyLTMwIDIwLTQ0IDQwLTQ0czM4IDE0IDQwIDQ0Yy0xMC0xNC0yMi0yMi00MC0yMnMtMzAgOC00MCAyMnoiIGZpbGw9IiMxRTE0MjAiLz4KICAgIDxjaXJjbGUgY3g9IjM5OCIgY3k9IjIyNiIgcj0iMy41IiBmaWxsPSIjRTQ1NzJFIi8+CiAgPC9nPgoKICA8IS0tIGNlbnRyZSB3b21hbjogYm9iLCBwbHVtIGt1cnRhICsgZHVwYXR0YSAtLT4KICA8Zz4KICAgIDxwYXRoIGQ9Ik0xODAgNDQwYzAtODIgNDItMTMwIDEwMC0xMzBzMTAwIDQ4IDEwMCAxMzB6IiBmaWxsPSIjOEUyQTVCIi8+CiAgICA8cGF0aCBkPSJNMjQ2IDMxMmg2OHYtMjJoLTY4eiIgZmlsbD0iI0UwQUM4QSIvPgogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMjM2IiByPSI0NiIgZmlsbD0iI0UwQUM4QSIvPgogICAgPHBhdGggZD0iTTIzMiAyNDRjLTgtNjAgMjItODQgNDgtODRzNTYgMjQgNDggODRjMCAxOC02IDM0LTEyIDQ0IDYtMjYgMi02MC0zNi02MHMtNDIgMzQtMzYgNjBjLTYtMTAtMTItMjYtMTItNDR6IiBmaWxsPSIjMkIxQjJFIi8+CiAgICA8cGF0aCBkPSJNMjMyIDI0NGM4LTI2IDI0LTM4IDQ4LTM4czQwIDEyIDQ4IDM4Yy0xNC0xNC0yOC0xOC00OC0xOHMtMzQgNC00OCAxOHoiIGZpbGw9IiMyQjFCMkUiLz4KICAgIDxjaXJjbGUgY3g9IjIzNyIgY3k9IjI2MiIgcj0iNC41IiBmaWxsPSIjRjJBMzNBIi8+PGNpcmNsZSBjeD0iMzIzIiBjeT0iMjYyIiByPSI0LjUiIGZpbGw9IiNGMkEzM0EiLz4KICAgIDxwYXRoIGQ9Ik0xODggNDQwYzQtNTAgMjQtOTIgNzAtMTE2bDggMTRjLTMwIDI0LTQwIDYwLTQyIDEwMnoiIGZpbGw9IiNFNDU3MkUiLz4KICAgIDxjaXJjbGUgY3g9IjI4MCIgY3k9IjIwMCIgcj0iMyIgZmlsbD0iI0U0NTcyRSIvPgogIDwvZz4KCiAgPCEtLSBzaGllbGQgaGVsZCBpbiBmcm9udCAtLT4KICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyMjIgMjYyKSI+CiAgICA8cGF0aCBkPSJNNTggMGw1OCAyMnY0NGMwIDQwLTI0IDcwLTU4IDg2QzI0IDEzNiAwIDEwNiAwIDY2VjIyeiIgZmlsbD0idXJsKCNzaCkiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSI2IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CiAgICA8cGF0aCBkPSJNNTggMzBjOCAxMSAxMiAyMSAxMiAzMCAwIDEwLTUgMTgtMTIgMjItNy00LTEyLTEyLTEyLTIyIDAtOSA0LTE5IDEyLTMweiIgZmlsbD0iI0ZGRTlDNyIvPgogICAgPHBhdGggZD0iTTM0IDU2YzEwIDEgMTcgNiAyMSAxNCAyIDQgMiA5IC44IDEzLTEwLS4yLTIwLTEwLjUtMjEuOC0yN3pNODIgNTZjLTEuOCAxNi41LTExLjggMjYuOC0yMS44IDI3LTEuMi00LTEuMi05IC44LTEzIDQtOCAxMS0xMyAyMS0xNHoiIGZpbGw9IiNGRkQwOEEiLz4KICAgIDxwYXRoIGQ9Ik00MCAxMDRjNSA1IDExIDcgMTggN3MxMy0yIDE4LTciIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0ZGRTlDNyIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8L2c+Cjwvc3ZnPgo=" alt="Three women standing together behind a shield"></section>
+    <div class="quick">${[['shield', 'a', 'qa_shield', 'shield'], ['lock', 'b', 'qa_vault', 'vault'], ['file', 'c', 'qa_report', 'report'], ['heart', 'd', 'qa_sahara', 'sahara']].map(([ic, c, k, r]) => `<a class="card link" href="#/${r}"><span class="qi ${c}">${icon(ic)}</span><h3>${t(k)}</h3><p>${t(k + '_d')}</p></a>`).join('')}</div>
+    <div class="split"><div class="card"><div class="spread"><div class="card-title" style="margin:0">Your protection</div><span class="chip ${done === 4 ? 'safe' : 'warn'}">${done}/4 set up</span></div>
+      <div class="progress" style="margin:14px 0"><i style="width:${done / 4 * 100}%"></i></div>
+      <div class="stack">${setup.map(([l, d, h]) => `<a class="chk ${d ? 'done' : ''}" href="${h}" style="text-decoration:none;color:inherit"><input type="checkbox" ${d ? 'checked' : ''} tabindex="-1" aria-hidden="true" style="pointer-events:none"><span>${l}</span></a>`).join('')}</div></div>
+      <div class="stack"><div class="grid g2"><div class="card"><div class="stat"><b>${ph}</b><span>photos shielded</span></div></div><div class="card"><div class="stat"><b>${ev}</b><span>evidence entries ${ev ? (ok ? '· intact' : '· <span style="color:var(--danger)">BROKEN</span>') : ''}</span></div></div></div>
+        <div class="card"><div class="stat"><b>${cs}</b><span>open case${cs === 1 ? '' : 's'}</span></div></div>
+        <div class="card dark"><div class="card-title" style="color:#FFD08A">${icon('lock')} ${t('privacy_h')}</div><p class="small" style="margin:0;color:#E9D8EE">Photos are fingerprinted on your device and never uploaded. Evidence is encrypted here. No account, no tracking. Use <b>Quick exit</b> (or press Esc twice) to leave instantly.</p></div></div></div>
+    <div class="card tint" style="margin-top:22px"><div class="spread"><div><div class="card-title" style="margin:0">${t('mood_q')}</div><p class="muted small" style="margin:4px 0 0">If it feels like too much, Sahara is here, and so are people who can help.</p></div>
+      <div class="row"><a class="btn" href="#/sahara">Talk to Sahara</a><a class="btn safe" href="tel:14416">${icon('phone')} 14416</a></div></div></div></div>`;
+});
+
+Router.register('sos', root => {
+  root.innerHTML = `<div class="page"><div class="page-head"><div class="eyebrow" style="color:var(--danger)">${icon('alert')} ${t('nav_sos')}</div><h1>${t('sos_title')}</h1><p class="lead">${t('sos_sub')}</p></div>
+    <div class="split"><div class="stack"><div class="steps">${[1, 2, 3, 4, 5].map(i => `<div class="step"><div><h3>${t('sos_' + i)}</h3><p>${t('sos_' + i + 'd')}</p></div></div>`).join('')}</div>
+      <div class="card"><div class="card-title">${icon('flask')} Words you can use</div><p class="small muted">If someone is blackmailing you, you can reply once, calmly, then stop:</p>
+        <div class="letter" style="max-height:none;font-family:inherit;font-size:.92rem">I will not be paying anything. I have saved all of our conversation and filed a complaint with the cyber crime cell. Any further contact or sharing of my images will be added to the case.</div>
+        <button class="btn sm" style="margin-top:10px" id="cpy">${icon('copy')} Copy</button></div></div>
+      <div class="stack"><div class="hl red"><div><b>112</b><span>Emergency · immediate danger</span></div><a class="btn danger" href="tel:112">${icon('phone')} ${t('call')}</a></div>
+        <div class="hl"><div><b>1930</b><span>Cyber crime helpline</span></div><a class="btn coral" href="tel:1930">${icon('phone')} ${t('call')}</a></div>
+        <a class="btn block" href="https://cybercrime.gov.in" target="_blank" rel="noopener">${icon('link')} cybercrime.gov.in: file online</a>
+        <a class="btn primary block" href="#/vault?new">${icon('lock')} Save evidence now</a><a class="btn block" href="#/report">${icon('file')} Draft my complaint</a><a class="btn block" href="#/sahara">${icon('heart')} I need someone to talk to</a>
+        <div class="card safe"><b>Remember:</b> you are the victim. Offenders rely on shame and silence. Telling one trusted person is often the moment things start to change.</div></div></div></div>`;
+  $('#cpy').onclick = () => copy($('.letter', root).textContent);
+});
+
+Router.register('help', root => {
+  const H = [['112', 'Emergency response', 'Police, fire, ambulance. Unified national number.', 'red'], ['1930', 'National Cyber Crime Helpline', 'Report financial fraud, sextortion, online abuse.', ''], ['14416', 'Tele-MANAS', 'Free tele-mental-health, 24x7, in many languages.', ''], ['14490', 'NCW Women Helpline', 'National Commission for Women, 24x7.', ''], ['181', 'Women Helpline', 'Support and referral for women in distress.', ''], ['1098', 'Childline', 'For children in distress.', '']];
+  const R = [['Your images cannot be shared without consent', 'Sharing intimate images without consent is an offence (IT Act ss.66E, 67, 67A; BNS ss.77, 78).'], ['You can ask a platform to remove it', 'Under the IT Rules 2021, platforms must remove intimate-image and impersonation content within 24 hours of a complaint from the person affected.'], ['You can file a complaint online', 'The National Cyber Crime Reporting Portal lets you report without going to a station, and offers an option to report anonymously for some categories.'], ['You do not need to be perfect', 'Panic, deleted messages or late reporting do not make you at fault. Report anyway.'], ['Free legal aid exists', 'Women are entitled to free legal services through the National and State Legal Services Authorities. Ask at your District Legal Services Authority (nalsa.gov.in).'], ['One Stop Centres (Sakhi)', 'Government-run centres give women in distress medical, legal and counselling support under one roof.']];
+  root.innerHTML = `<div class="page"><div class="page-head"><div class="eyebrow">${icon('phone')} ${t('nav_help')}</div><h1>Help is closer than it feels.</h1><p class="lead">Last checked 8 Nov 2026 against PIB and NCW pages. Please confirm locally, as services change.</p></div>
+    <div class="grid g2" style="margin-bottom:24px">${H.map(([n, nm, d, c]) => `<div class="hl ${c}"><div><b>${n}</b><span><b>${nm}</b><br>${d}</span></div><a class="btn ${c ? 'danger' : 'safe'}" href="tel:${n.replace(/[^\d]/g, '')}">${icon('phone')} ${t('call')}</a></div>`).join('')}</div>
+    <h2>Your rights, in plain words</h2><div class="grid g2">${R.map(([h, p]) => `<div class="card"><h3>${h}</h3><p class="muted" style="margin:0">${p}</p></div>`).join('')}</div>
+    <div class="card warn" style="margin-top:20px"><b>Not legal advice.</b> Kavach is a self-help tool. Laws and procedures change; a lawyer or legal-aid cell can confirm what applies to you.</div></div>`;
+});
+
+Router.register('about', root => {
+  root.innerHTML = `<div class="page"><div class="page-head"><div class="eyebrow">${icon('info')} About Kavach</div><h1>Built for the moment nobody else is watching.</h1>
+    <p class="lead">Online abuse is a problem with five different systems and no front door. Kavach is that front door.</p></div>
+    <div class="grid g3">${[['shield', 'Prevent', 'On-device perceptual fingerprints (pHash) let platforms block re-uploads of a protected photo, even edited. Same principle as StopNCII.'], ['lock', 'Prove', 'Hash-chained, encrypted evidence with a BSA s.63 certificate template and one-click court-ready report.'], ['file', 'Act', 'Complaint drafter, 24-hour takedown notices and a case tracker for the cyber cell route.'], ['heart', 'Heal', 'Sahara, with a consent-based safety net that reaches trusted people and 112.'], ['eye', 'Private', 'No server. No account. AES-256-GCM encryption. Quick exit and disguise mode for unsafe homes.'], ['globe', 'Accessible', 'Installable offline PWA, English and Hindi, runs on a basic phone browser.']].map(([i, h, p]) => `<div class="card"><div class="card-title"><span class="ic">${icon(i)}</span>${h}</div><p class="muted" style="margin:0">${p}</p></div>`).join('')}</div>
+    <div class="card" style="margin-top:20px"><div class="card-title">What is real, and what is simulated</div>
+      <div class="grid g2"><div><span class="chip safe">Real, runs on-device</span><ul><li>Perceptual hashing and matching</li><li>AES-256-GCM encrypted storage, PBKDF2 key derivation</li><li>SHA-256 hash-chained evidence, verification</li><li>EXIF reading, error-level analysis, metadata cleaning</li><li>Complaint / takedown drafting, case deadlines</li><li>Local crisis-language detection, breathing, grounding</li></ul></div>
+      <div><span class="chip warn">Simulated or needs partners</span><ul><li>The “MockGram” platform is a demonstration, not a real platform</li><li>Real cross-platform blocking needs a trusted registry (StopNCII) and platform adoption</li><li>Sending SMS / reaching 112 needs a server relay and an ERSS-112 / telecom partnership. A browser alone cannot do it silently</li><li>ELA is a weak hint, not a deepfake detector</li><li>Sahara is rule-based; it is a companion, not a clinician</li></ul></div></div></div>
+    <div class="card" style="margin-top:20px"><div class="card-title">Roadmap</div><div class="pipe"><span class="p on">Now · on-device prototype</span><span class="ar">→</span><span class="p">Pilot with a college ICC + NGO</span><span class="ar">→</span><span class="p">StopNCII hash submission</span><span class="ar">→</span><span class="p">Consent-based alert relay + 112 integration</span><span class="ar">→</span><span class="p">Clinician-reviewed Sahara, more Indian languages</span></div></div>
+    <div class="card dark" style="margin-top:20px"><div class="spread"><div><b style="font-family:var(--serif);font-size:1.2rem">Demo controls</b><div class="small muted">For judges: toggle simulation mode for alerts, or wipe local data.</div></div>
+      <div class="row"><button class="btn sm" id="dm"></button><button class="btn sm danger" id="wipe">Erase all data</button></div></div></div></div>`;
+  const dm = $('#dm'), paint = () => dm.textContent = CONFIG.demo ? 'Simulation mode: ON' : 'Simulation mode: OFF';
+  paint(); dm.onclick = () => { CONFIG.demo = !CONFIG.demo; paint(); };
+  $('#wipe').onclick = async () => { if (confirm('Erase everything stored on this device?')) { await Store.wipe(); location.reload(); } };
+});
+
+Router.onChange = r => App.mark(r);
+
+/* ------------------------------ boot ------------------------------ */
+let escAt = 0;
+document.addEventListener('keydown', e => { if (e.key === 'Escape') { const n = Date.now(); if (n - escAt < 700) App.quickExit(); escAt = n; closeModal(); } });
+$('#qexit').addEventListener('click', App.quickExit);
+
+(async function boot() {
+  document.documentElement.lang = LANG;
+  App.drawChrome();
+  await App.gate();
+  Router.render();
+  if ('serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('sw.js').catch(() => {});
+})();
+
+</script>
+</body>
+</html>

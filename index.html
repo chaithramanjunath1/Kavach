@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Kavach — Her image. Her evidence. Her call.</title>
+<meta name="description" content="Kavach protects women from online abuse: on-device image shield, tamper-evident evidence vault, guided complaints and 24x7 emotional support.">
+<meta name="theme-color" content="#2A1235">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<a class="skip" href="#view">Skip to content</a>
+<aside class="side" id="side" aria-label="Main navigation"></aside>
+<main id="view" tabindex="-1"></main>
+<nav class="tabbar" id="tabbar" aria-label="Main navigation"></nav>
+<button class="qexit" id="qexit" title="Leave instantly — or press Esc twice"></button>
+<div id="gate"></div>
+<div id="overlay"></div>
+<div id="modal"></div>
+<div class="toasts" id="toast" aria-live="polite"></div>
+
+<script src="js/util.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/store.js"></script>
+<script src="js/forensics.js"></script>
+<script src="js/shield.js"></script>
+<script src="js/vault.js"></script>
+<script src="js/report.js"></script>
+<script src="js/sahara.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
